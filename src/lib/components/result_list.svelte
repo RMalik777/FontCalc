@@ -77,7 +77,12 @@
 
 	<form>
 		<label for="showas">Show For</label>
-		<select name="showas" placeholder="Select the displayed result format" bind:value={show_as}>
+		<select
+			id="showas"
+			name="showas"
+			placeholder="Select the displayed result format"
+			bind:value={show_as}
+		>
 			<option value="print">Print</option>
 			<option value="web">Web</option>
 		</select>
@@ -85,14 +90,15 @@
 
 	<form>
 		<label for="simulate">Visualize Size</label>
-		<input type="checkbox" name="simulate" bind:checked={visualize} />
+		<input type="checkbox" id="simulate" name="simulate" bind:checked={visualize} />
 		<label for="rounding">Rounding</label>
-		<input type="checkbox" name="rounding" bind:checked={rounding} />
+		<input type="checkbox" id="rounding" name="rounding" bind:checked={rounding} />
 		<label for="roundingTo">Number of Decimal</label>
 		<input
 			type="number"
-			min="0"
+			id="roundingTo"
 			name="roundingTo"
+			min="0"
 			placeholder="The amount of number behind point"
 			bind:value={rounding_to}
 		/>

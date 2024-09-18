@@ -27,6 +27,7 @@
 	<form>
 		<label for="constant">Ratio</label>
 		<select
+			id="constant"
 			name="constant"
 			placeholder="Select the desired ratio to calculate the font size"
 			bind:value={selected_option}
@@ -39,7 +40,8 @@
 		<label for="custom">Custom Ratio</label>
 		<input
 			type="number"
-			name="custom"
+			id="custom"
+			name="constant"
 			placeholder="Enter custom ratio"
 			disabled={selected_option != undefined}
 			bind:value={custom_option}
@@ -50,12 +52,14 @@
 		<label for="base">Font Base Size</label>
 		<input
 			type="number"
+			id="base"
 			name="base"
 			placeholder="Enter the base font size (default is 16px)"
 			bind:value={base_size}
 		/>
 		<label for="display">Display Result As</label>
 		<select
+			id="display"
 			name="display"
 			placeholder="Select the units to display the output"
 			bind:value={display}
