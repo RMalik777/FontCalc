@@ -16,7 +16,7 @@
 			label: 'Custom'
 		}
 	];
-	let custom_option: number | undefined = $state();
+	let custom_option: number | undefined = $state(selected_option);
 	let constant = $derived(selected_option ?? custom_option);
 	let base_size = $state(16);
 	let display: 'px' | 'rem' = $state('px');
