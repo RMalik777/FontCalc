@@ -119,9 +119,9 @@
 				{ label: '-1', level: -1 }
 			])}>Reset</button
 	>
-	<table>
-		<thead>
-			<tr>
+	<table class="table-auto">
+		<thead class="border font-medium ">
+			<tr class="*:border *:p-1">
 				<th>Level</th>
 				<th>Size</th>
 			</tr>

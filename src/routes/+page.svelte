@@ -22,9 +22,9 @@
 	let display: 'px' | 'rem' = $state('px');
 </script>
 
-<main>
-	<h1>Font Size Calculator</h1>
-	<form>
+<main class="">
+	<!-- <h1 class="text-center text-4xl font-semibold">Font Size Calculator</h1> -->
+	<form class="flex flex-row items-center gap-2">
 		<label for="constant">Ratio</label>
 		<select
 			id="constant"
@@ -32,6 +32,7 @@
 			placeholder="Select the desired ratio to calculate the font size"
 			bind:value={selected_option}
 			onchange={() => (custom_option = selected_option)}
+			class="p-1"
 		>
 			{#each option as { value, label }}
 				<option {value}>{label}</option>
@@ -45,6 +46,7 @@
 			placeholder="Enter custom ratio"
 			disabled={selected_option != undefined}
 			bind:value={custom_option}
+			class="p-1 disabled:opacity-50"
 		/>
 	</form>
 

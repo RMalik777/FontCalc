@@ -23,9 +23,9 @@
 	});
 </script>
 
-<tr>
-	<td>{label}</td>
-	<td style:font-size={visualize ? `${formatted_value}${display}` : ''}>
+<tr class="border *:border">
+	<td class="">{label}</td>
+	<td class="" style:font-size={visualize ? `${formatted_value}${display}` : ''}>
 		{formatted_value} {display}</td
 	>
 </tr>
