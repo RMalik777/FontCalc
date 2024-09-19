@@ -23,7 +23,7 @@
 </script>
 
 <main class="">
-	<!-- <h1 class="text-center text-4xl font-semibold">Font Size Calculator</h1> -->
+	<h1 class="text-center text-4xl font-semibold">Font Size Calculator</h1>
 	<form class="flex flex-row items-center gap-2">
 		<label for="constant">Ratio</label>
 		<select
