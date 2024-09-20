@@ -75,8 +75,8 @@
 	<hr class="h-px w-full" />
 	<h2 class="text-xl font-semibold">Result</h2>
 	<p>The base font size is <span class="font-bold">{base_size} px.</span></p>
-	<div class="flex w-full flex-col items-start justify-center gap-2 md:flex-row">
-		<form class="w-full md:w-1/2">
+	<div class="flex w-full items-start justify-center gap-2 flex-col">
+		<form class="w-full">
 			<label for="showas">Show For</label>
 			<select
 				id="showas"
@@ -120,7 +120,7 @@
 			/>
 		</form>
 
-		<div class="mx-auto">
+		<div class="">
 			<button
 				disabled={show_as === 'web'}
 				onclick={pushHead}
