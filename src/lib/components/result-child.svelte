@@ -24,8 +24,8 @@
 </script>
 
 <tr class="border *:border">
-	<td class="">{label}</td>
-	<td class="" style:font-size={visualize ? `${formatted_value}${display}` : ''}>
+	<td class="px-2 py-1 text-center">{label}</td>
+	<td class="px-2 py-1" style:font-size={visualize ? `${formatted_value}${display}` : ''}>
 		{formatted_value} {display}</td
 	>
 </tr>
