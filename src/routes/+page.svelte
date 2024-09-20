@@ -29,7 +29,7 @@
 <main
 	class="mx-4 flex h-fit min-h-dvh flex-col items-center justify-start gap-3 sm:mx-8 md:mx-14 lg:mx-20"
 >
-	<!-- <h1 class="text-center text-4xl font-semibold">Font Size Calculator</h1> -->
+	<h1 class="text-center text-4xl font-semibold">Font Size Calculator</h1>
 	<form class="w-full space-x-1">
 		<label for="constant" class="font-medium">Ratio</label>
 		<select
