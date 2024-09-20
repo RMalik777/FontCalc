@@ -31,33 +31,37 @@
 >
 	<h1 class="text-center text-4xl font-semibold">Font Size Calculator</h1>
 	<form class="w-full space-x-1">
-		<label for="constant" class="font-medium">Ratio</label>
-		<select
-			id="constant"
-			name="constant"
-			placeholder="Select the desired ratio to calculate the font size"
-			bind:value={selected_option}
-			onchange={() => (custom_option = selected_option)}
-			class="rounded-sm py-px"
-		>
-			{#each option as { value, label }}
-				<option {value}>{label}</option>
-			{/each}
-		</select>
-		<label for="custom">Custom Ratio</label>
-		<input
-			type="number"
-			id="custom"
-			name="constant"
-			placeholder="Enter custom ratio"
-			disabled={selected_option != undefined}
-			bind:value={custom_option}
-			class="rounded-sm px-1 py-px"
-		/>
+		<div>
+			<label for="constant" class="block font-medium">Ratio</label>
+			<select
+				id="constant"
+				name="constant"
+				placeholder="Select the desired ratio to calculate the font size"
+				bind:value={selected_option}
+				onchange={() => (custom_option = selected_option)}
+				class="block rounded-sm py-px"
+			>
+				{#each option as { value, label }}
+					<option {value}>{label}</option>
+				{/each}
+			</select>
+		</div>
+		<div>
+			<label for="custom" class="block font-medium">Custom Ratio</label>
+			<input
+				type="number"
+				id="custom"
+				name="constant"
+				placeholder="Enter custom ratio"
+				disabled={selected_option != undefined}
+				bind:value={custom_option}
+				class="block rounded-sm px-1 py-px"
+			/>
+		</div>
 	</form>
 
 	<form class="flex w-full flex-col items-start justify-start space-x-1">
-		<label for="base">Font Base Size</label>
+		<label for="base" class="font-medium">Font Base Size</label>
 		<input
 			type="number"
 			id="base"
@@ -66,7 +70,7 @@
 			bind:value={base_size}
 			class="rounded-sm px-1 py-px font-medium"
 		/>
-		<label for="display">Display Result As</label>
+		<label for="display" class="font-medium">Display Result As</label>
 		<select
 			id="display"
 			name="display"

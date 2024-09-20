@@ -75,9 +75,9 @@
 	<hr class="h-px w-full" />
 	<h2 class="text-xl font-semibold">Result</h2>
 	<p>The base font size is <span class="font-bold">{base_size} px.</span></p>
-	<div class="flex w-full items-start justify-center gap-2 flex-col">
+	<div class="flex w-full flex-col items-start justify-center gap-2">
 		<form class="w-full">
-			<label for="showas">Show For</label>
+			<label for="showas" class="font-medium">Show For</label>
 			<select
 				id="showas"
 				name="showas"
@@ -94,9 +94,9 @@
 					id="simulate"
 					name="simulate"
 					bind:checked={visualize}
-					class="rounded-sm px-1 py-px"
+					class="rounded-sm px-1 py-px font-medium"
 				/>
-				<label for="simulate">Visualize Size</label>
+				<label for="simulate" class="font-medium">Visualize Size</label>
 			</div>
 			<div>
 				<input
@@ -106,9 +106,9 @@
 					bind:checked={rounding}
 					class="rounded-sm px-1 py-px"
 				/>
-				<label for="rounding">Rounding</label>
+				<label for="rounding" class="font-medium">Rounding</label>
 			</div>
-			<label for="roundingTo">Fractional Digit</label>
+			<label for="roundingTo" class="font-medium">Fractional Digit</label>
 			<input
 				type="number"
 				id="roundingTo"
