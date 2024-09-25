@@ -2,6 +2,8 @@
 	import { page } from '$app/stores';
 	import { draw, fade } from 'svelte/transition';
 	import { expoOut } from 'svelte/easing';
+	import { buttonVariant } from '$lib/components/ui/button';
+	import { merge } from '$lib/utils/class-merge';
 
 	let image = $state(false);
 	$effect(() => {
@@ -10,9 +12,9 @@
 </script>
 
 <main
-	class="relative flex h-dvh w-dvw flex-col items-center justify-center gap-4 text-xl font-medium tracking-tight"
+	class="flex h-dvh w-dvw flex-col items-center justify-center gap-6 scroll-smooth text-xl font-medium tracking-tight antialiased"
 >
-	<div class="h-12 w-auto">
+	<div class="absolute bottom-1 aspect-square h-10 w-auto sm:h-12 md:h-14 lg:h-16 xl:h-20">
 		{#if image}
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +53,10 @@
 	</div>
 
 	<section class="text-center leading-none">
-		<h1 class="text-2xl font-bold">{$page?.status}</h1>
-		<p class="">{$page?.error?.message}</p>
+		<h1 class="text-5xl font-semibold sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+			{$page?.status}
+		</h1>
+		<p class="text-2xl lg:text-3xl">{$page?.error?.message}</p>
 	</section>
+	<a href="/" class={merge(buttonVariant({ size: 'default' }), 'text-base')}>Back to Home</a>
 </main>
