@@ -1,5 +1,8 @@
 <script lang="ts">
 	import Result from '$lib/components/result-list.svelte';
+	import Checkbox from '$lib/components/ui/checkbox.svelte';
+	import Input from '$lib/components/ui/input.svelte';
+	import Label from '$lib/components/ui/label.svelte';
 
 	let selected_option = $state(1.618);
 	const option = [
@@ -19,6 +22,7 @@
 	let custom_option: number | undefined = $state(selected_option);
 	let constant = $derived(selected_option ?? custom_option);
 	let base_size = $state(16);
+	const base_or_head: 'base' | 'head' = $state('base');
 	const display_option = [
 		{ value: 'px', label: 'px' },
 		{ value: 'rem', label: 'rem' }
@@ -32,7 +36,7 @@
 	<h1 class="text-center text-4xl font-semibold">Font Size Calculator</h1>
 	<form class="w-full space-x-1">
 		<div>
-			<label for="constant" class="block font-medium">Ratio</label>
+			<Label for="constant">Ratio</Label>
 			<select
 				id="constant"
 				name="constant"
@@ -47,30 +51,28 @@
 			</select>
 		</div>
 		<div>
-			<label for="custom" class="block font-medium">Custom Ratio</label>
-			<input
+			<Label for="custom">Custom Ratio</Label>
+			<Input
 				type="number"
 				id="custom"
 				name="constant"
 				placeholder="Enter custom ratio"
 				disabled={selected_option != undefined}
 				bind:value={custom_option}
-				class="block rounded-sm px-1 py-px"
 			/>
 		</div>
 	</form>
 
 	<form class="flex w-full flex-col items-start justify-start space-x-1">
-		<label for="base" class="font-medium">Font Base Size</label>
-		<input
+		<Label for="base">Font Base Size</Label>
+		<Input
 			type="number"
 			id="base"
 			name="base"
 			placeholder="Enter the base font size (default is 16px)"
 			bind:value={base_size}
-			class="rounded-sm px-1 py-px font-medium"
 		/>
-		<label for="display" class="font-medium">Display Result As</label>
+		<Label for="display">Display Result As</Label>
 		<select
 			id="display"
 			name="display"

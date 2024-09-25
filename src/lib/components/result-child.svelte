@@ -23,9 +23,12 @@
 	});
 </script>
 
-<tr class="border *:border">
-	<td class="px-2 py-1 text-center">{label}</td>
-	<td class="px-2 py-1" style:font-size={visualize ? `${formatted_value}${display}` : ''}>
+<tr class="border *:border hover:bg-neutral-100">
+	<td class="py-1 px-2 text-center">{label}</td>
+	<td
+		class="py-1 px-2 font-medium"
+		style:font-size={visualize ? `${formatted_value}${display}` : ''}
+	>
 		{formatted_value} {display}</td
 	>
 </tr>

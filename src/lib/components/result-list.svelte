@@ -1,6 +1,11 @@
 <script lang="ts">
 	import ResultChild from './result-child.svelte';
 
+	import Button from '$lib/components/ui/button/button.svelte';
+	import Input from '$lib/components/ui/input.svelte';
+	import Label from '$lib/components/ui/label.svelte';
+	import Checkbox from '$lib/components/ui/checkbox.svelte';
+
 	interface Props {
 		base_size: number;
 		constant: number;
@@ -77,64 +82,44 @@
 	<p>The base font size is <span class="font-bold">{base_size} px.</span></p>
 	<div class="flex w-full flex-col items-start justify-center gap-2">
 		<form class="w-full">
-			<label for="showas" class="font-medium">Show For</label>
+			<Label for="showas">Show For</Label>
 			<select
 				id="showas"
 				name="showas"
 				placeholder="Select the displayed result format"
 				bind:value={show_as}
-				class="rounded-sm px-1 py-px"
+				class="rounded-sm px-1"
 			>
 				<option value="print">Print</option>
 				<option value="web">Web</option>
 			</select>
 			<div>
-				<input
-					type="checkbox"
-					id="simulate"
-					name="simulate"
-					bind:checked={visualize}
-					class="rounded-sm px-1 py-px font-medium"
-				/>
-				<label for="simulate" class="font-medium">Visualize Size</label>
+				<Checkbox type="checkbox" id="simulate" name="simulate" bind:checked={visualize} />
+				<Label for="simulate" class="inline-block">Visualize Size</Label>
 			</div>
 			<div>
-				<input
-					type="checkbox"
-					id="rounding"
-					name="rounding"
-					bind:checked={rounding}
-					class="rounded-sm px-1 py-px"
-				/>
-				<label for="rounding" class="font-medium">Rounding</label>
+				<Checkbox type="checkbox" id="rounding" name="rounding" bind:checked={rounding} />
+				<Label for="rounding" class="inline-block">Rounding</Label>
 			</div>
-			<label for="roundingTo" class="font-medium">Fractional Digit</label>
-			<input
+			<Label for="roundingTo">Fractional Digit</Label>
+			<Input
 				type="number"
 				id="roundingTo"
 				name="roundingTo"
 				min="0"
 				placeholder="The amount of number behind point"
 				bind:value={rounding_to}
-				class="rounded-sm px-1 py-px"
+				class="rounded-sm py-px px-1"
 			/>
 		</form>
 
 		<div class="">
-			<button
+			<Button disabled={show_as === 'web'} onclick={pushHead} size="xs" square>+</Button>
+			<Button disabled={show_as === 'web'} onclick={popHead} size="xs" square>-</Button>
+			<Button
 				disabled={show_as === 'web'}
-				onclick={pushHead}
-				class="rounded border bg-neutral-100 px-2 py-1 hover:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-50"
-				>+</button
-			>
-			<button
-				disabled={show_as === 'web'}
-				onclick={popHead}
-				class="rounded border bg-neutral-100 px-2 py-1 hover:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-50"
-				>-</button
-			>
-			<button
-				disabled={show_as === 'web'}
+				size="xs"
+				square={false}
 				onclick={() =>
 					(print = [
 						{ label: '6', level: 6 },
@@ -145,12 +130,10 @@
 						{ label: '1', level: 1 },
 						{ label: 'Base', level: 0 },
 						{ label: '-1', level: -1 }
-					])}
-				class="rounded border bg-neutral-100 px-2 py-1 hover:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-50"
-				>Reset</button
+					])}>Reset</Button
 			>
 			<table class="table-auto">
-				<thead class="border bg-neutral-100 font-medium">
+				<thead class="border bg-neutral-100 font-semibold">
 					<tr class="*:border *:p-2">
 						<th>Level</th>
 						<th>Size</th>
@@ -171,18 +154,8 @@
 					{/each}
 				</tbody>
 			</table>
-			<button
-				disabled={show_as === 'web'}
-				onclick={pushTail}
-				class="rounded border bg-neutral-100 px-2 py-1 hover:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-50"
-				>+</button
-			>
-			<button
-				disabled={show_as === 'web'}
-				onclick={popTail}
-				class="rounded border bg-neutral-100 px-2 py-1 hover:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-50"
-				>-</button
-			>
+			<Button disabled={show_as === 'web'} onclick={pushTail} size="xs" square>+</Button>
+			<Button disabled={show_as === 'web'} onclick={popTail} size="xs" square>-</Button>
 		</div>
 	</div>
 </section>
