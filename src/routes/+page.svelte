@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Result from '$lib/components/result-list.svelte';
-	import Checkbox from '$lib/components/ui/checkbox.svelte';
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
