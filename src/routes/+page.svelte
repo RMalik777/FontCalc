@@ -18,7 +18,10 @@
 			label: 'Custom'
 		}
 	];
-	let custom_option: number | undefined = $state(selected_option);
+	import { untrack } from 'svelte';
+
+	// This is intentional, custom_option initial value need to be the same as selected_option initial value
+	let custom_option: number | undefined = $state(untrack(() => selected_option));
 	let constant = $derived(selected_option ?? custom_option);
 	let base_size = $state(16);
 	const base_or_head: 'base' | 'head' = $state('base');
@@ -53,6 +56,7 @@
 			<Label for="custom">Custom Ratio</Label>
 			<Input
 				type="number"
+				step="0.001"
 				id="custom"
 				name="constant"
 				placeholder="Enter custom ratio"
