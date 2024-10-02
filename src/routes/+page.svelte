@@ -24,7 +24,6 @@
 	let custom_option: number | undefined = $state(untrack(() => selected_option));
 	let constant = $derived(selected_option ?? custom_option);
 	let base_size = $state(16);
-	const base_or_head: 'base' | 'head' = $state('base');
 	const display_option = [
 		{ value: 'px', label: 'px' },
 		{ value: 'rem', label: 'rem' }
