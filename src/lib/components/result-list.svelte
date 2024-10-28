@@ -109,7 +109,7 @@
 				min="0"
 				placeholder="The amount of number behind point"
 				bind:value={rounding_to}
-				class="rounded-sm py-px px-1"
+				class="rounded-sm px-1 py-px"
 			/>
 		</form>
 
