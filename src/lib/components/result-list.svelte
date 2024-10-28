@@ -1,55 +1,55 @@
 <script lang="ts">
-	import ResultChild from './result-child.svelte';
+	import ResultChild from "./result-child.svelte";
 
-	import Button from '$lib/components/ui/button/button.svelte';
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-	import Checkbox from '$lib/components/ui/checkbox.svelte';
+	import Button from "$lib/components/ui/button/button.svelte";
+	import Input from "$lib/components/ui/input.svelte";
+	import Label from "$lib/components/ui/label.svelte";
+	import Checkbox from "$lib/components/ui/checkbox.svelte";
 
 	interface Props {
 		base_size: number;
 		constant: number;
-		display: 'px' | 'rem';
+		display: "px" | "rem";
 	}
 	let { base_size, constant, display }: Props = $props();
 
 	// Predefined values for web
 	const web = [
-		{ label: 'H1', level: 6 },
-		{ label: 'H2', level: 5 },
-		{ label: 'H3', level: 4 },
-		{ label: 'H4', level: 3 },
-		{ label: 'H5', level: 2 },
-		{ label: 'H6', level: 1 },
-		{ label: 'p', level: 0 },
-		{ label: 'small', level: -1 }
+		{ label: "H1", level: 6 },
+		{ label: "H2", level: 5 },
+		{ label: "H3", level: 4 },
+		{ label: "H4", level: 3 },
+		{ label: "H5", level: 2 },
+		{ label: "H6", level: 1 },
+		{ label: "p", level: 0 },
+		{ label: "small", level: -1 }
 	];
 
 	// Predefined values to mirror WEB
 	let print = $state([
-		{ label: '6', level: 6 },
-		{ label: '5', level: 5 },
-		{ label: '4', level: 4 },
-		{ label: '3', level: 3 },
-		{ label: '2', level: 2 },
-		{ label: '1', level: 1 },
-		{ label: 'Base', level: 0 },
-		{ label: '-1', level: -1 }
+		{ label: "6", level: 6 },
+		{ label: "5", level: 5 },
+		{ label: "4", level: 4 },
+		{ label: "3", level: 3 },
+		{ label: "2", level: 2 },
+		{ label: "1", level: 1 },
+		{ label: "Base", level: 0 },
+		{ label: "-1", level: -1 }
 	]);
 
-	let show_as: 'web' | 'print' = $state('print');
+	let show_as: "web" | "print" = $state("print");
 	let visualize = $state(false);
 	let rounding = $state(true);
 	let rounding_to = $state(2);
 
 	function pushHead() {
 		if (print.length === 0) {
-			print = [{ label: 'Base', level: 0 }];
+			print = [{ label: "Base", level: 0 }];
 			return;
 		}
 		const first_item = print[0];
 		const newItem = {
-			label: first_item.level + 1 == 0 ? 'Base' : `${first_item.level + 1}`,
+			label: first_item.level + 1 == 0 ? "Base" : `${first_item.level + 1}`,
 			level: first_item.level + 1
 		};
 		print.unshift(newItem);
@@ -59,12 +59,12 @@
 	}
 	function pushTail() {
 		if (print.length === 0) {
-			print = [{ label: 'Base', level: 0 }];
+			print = [{ label: "Base", level: 0 }];
 			return;
 		}
 		const last_item = print[print.length - 1];
 		const newItem = {
-			label: last_item.level - 1 == 0 ? 'Base' : `${last_item.level - 1}`,
+			label: last_item.level - 1 == 0 ? "Base" : `${last_item.level - 1}`,
 			level: last_item.level - 1
 		};
 		print.push(newItem);
@@ -73,7 +73,7 @@
 		print.pop();
 	}
 
-	let show = $derived(show_as === 'print' ? print : web);
+	let show = $derived(show_as === "print" ? print : web);
 </script>
 
 <section class="flex w-full flex-col items-center">
@@ -114,22 +114,22 @@
 		</form>
 
 		<div class="">
-			<Button disabled={show_as === 'web'} onclick={pushHead} size="xs" square>+</Button>
-			<Button disabled={show_as === 'web'} onclick={popHead} size="xs" square>-</Button>
+			<Button disabled={show_as === "web"} onclick={pushHead} size="xs" square>+</Button>
+			<Button disabled={show_as === "web"} onclick={popHead} size="xs" square>-</Button>
 			<Button
-				disabled={show_as === 'web'}
+				disabled={show_as === "web"}
 				size="xs"
 				square={false}
 				onclick={() =>
 					(print = [
-						{ label: '6', level: 6 },
-						{ label: '5', level: 5 },
-						{ label: '4', level: 4 },
-						{ label: '3', level: 3 },
-						{ label: '2', level: 2 },
-						{ label: '1', level: 1 },
-						{ label: 'Base', level: 0 },
-						{ label: '-1', level: -1 }
+						{ label: "6", level: 6 },
+						{ label: "5", level: 5 },
+						{ label: "4", level: 4 },
+						{ label: "3", level: 3 },
+						{ label: "2", level: 2 },
+						{ label: "1", level: 1 },
+						{ label: "Base", level: 0 },
+						{ label: "-1", level: -1 }
 					])}>Reset</Button
 			>
 			<table class="table-auto">
@@ -154,8 +154,8 @@
 					{/each}
 				</tbody>
 			</table>
-			<Button disabled={show_as === 'web'} onclick={pushTail} size="xs" square>+</Button>
-			<Button disabled={show_as === 'web'} onclick={popTail} size="xs" square>-</Button>
+			<Button disabled={show_as === "web"} onclick={pushTail} size="xs" square>+</Button>
+			<Button disabled={show_as === "web"} onclick={popTail} size="xs" square>-</Button>
 		</div>
 	</div>
 </section>

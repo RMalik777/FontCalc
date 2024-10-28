@@ -1,6 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
-	--font-family-sans: 'Satoshi', 'sans-serif';
-	--font-family-mono: 'Geist Mono', 'monospace';
+	--font-family-sans: "Satoshi", "sans-serif";
+	--font-family-mono: "Geist Mono", "monospace";
 }

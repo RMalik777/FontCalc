@@ -1,6 +1,6 @@
 <script lang="ts">
-	import '@fontsource/geist-mono';
-	import '../app.css';
+	import "@fontsource/geist-mono";
+	import "../app.css";
 </script>
 
 <svelte:head>

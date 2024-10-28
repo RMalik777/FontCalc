@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import { merge } from '$lib/utils/class-merge';
-	import { type VariantProps } from 'cva';
+	import type { HTMLButtonAttributes } from "svelte/elements";
+	import { merge } from "$lib/utils/class-merge";
+	import { type VariantProps } from "cva";
 
-	import { buttonVariant } from '$lib/components/ui/button/buttonVariant';
+	import { buttonVariant } from "$lib/components/ui/button/buttonVariant";
 
 	interface Props extends VariantProps<typeof buttonVariant>, HTMLButtonAttributes {}
 
