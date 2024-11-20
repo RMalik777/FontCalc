@@ -7,16 +7,16 @@
 	const option = [
 		{
 			value: 1.618,
-			label: "Golden Ratio (1.618)"
+			label: "Golden Ratio (1.618)",
 		},
 		{
 			value: 2,
-			label: "Double (2)"
+			label: "Double (2)",
 		},
 		{
 			value: undefined,
-			label: "Custom"
-		}
+			label: "Custom",
+		},
 	];
 	import { untrack } from "svelte";
 
@@ -26,7 +26,7 @@
 	let base_size = $state(16);
 	const display_option = [
 		{ value: "px", label: "px" },
-		{ value: "rem", label: "rem" }
+		{ value: "rem", label: "rem" },
 	];
 	let display: "px" | "rem" = $state("px");
 </script>

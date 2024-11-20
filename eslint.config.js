@@ -7,27 +7,27 @@ import globals from "globals";
 /** @type {import('eslint').Linter.Config[]} */
 export default [
 	js.configs.recommended,
-	...ts.configs.recommended,
+	...ts.configs.strict,
+	...ts.configs.stylistic,
 	...svelte.configs["flat/recommended"],
 	prettier,
-	...svelte.configs["flat/prettier"],
 	{
 		languageOptions: {
 			globals: {
 				...globals.browser,
-				...globals.node
-			}
-		}
+				...globals.node,
+			},
+		},
 	},
 	{
 		files: ["**/*.svelte"],
 		languageOptions: {
 			parserOptions: {
-				parser: ts.parser
-			}
-		}
+				parser: ts.parser,
+			},
+		},
 	},
 	{
-		ignores: ["build/", ".svelte-kit/", "dist/"]
-	}
+		ignores: ["build/", ".svelte-kit/", "dist/"],
+	},
 ];

@@ -22,7 +22,7 @@
 		{ label: "H5", level: 2 },
 		{ label: "H6", level: 1 },
 		{ label: "p", level: 0 },
-		{ label: "small", level: -1 }
+		{ label: "small", level: -1 },
 	];
 
 	// Predefined values to mirror WEB
@@ -34,7 +34,7 @@
 		{ label: "2", level: 2 },
 		{ label: "1", level: 1 },
 		{ label: "Base", level: 0 },
-		{ label: "-1", level: -1 }
+		{ label: "-1", level: -1 },
 	]);
 
 	let show_as: "web" | "print" = $state("print");
@@ -50,7 +50,7 @@
 		const first_item = print[0];
 		const newItem = {
 			label: first_item.level + 1 == 0 ? "Base" : `${first_item.level + 1}`,
-			level: first_item.level + 1
+			level: first_item.level + 1,
 		};
 		print.unshift(newItem);
 	}
@@ -65,7 +65,7 @@
 		const last_item = print[print.length - 1];
 		const newItem = {
 			label: last_item.level - 1 == 0 ? "Base" : `${last_item.level - 1}`,
-			level: last_item.level - 1
+			level: last_item.level - 1,
 		};
 		print.push(newItem);
 	}
@@ -129,7 +129,7 @@
 						{ label: "2", level: 2 },
 						{ label: "1", level: 1 },
 						{ label: "Base", level: 0 },
-						{ label: "-1", level: -1 }
+						{ label: "-1", level: -1 },
 					])}>Reset</Button
 			>
 			<table class="table-auto">
