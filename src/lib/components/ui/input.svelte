@@ -7,7 +7,7 @@
 
 <input
 	class={merge(
-		"rounded-sm px-1 py-px font-medium disabled:bg-neutral-100 disabled:opacity-50",
+		"rounded-sm border border-neutral-300 px-1 py-px font-medium disabled:bg-neutral-100 disabled:opacity-50",
 		className,
 	)}
 	bind:value

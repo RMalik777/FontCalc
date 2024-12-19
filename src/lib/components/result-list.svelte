@@ -88,7 +88,7 @@
 				name="showas"
 				placeholder="Select the displayed result format"
 				bind:value={show_as}
-				class="rounded-sm px-1"
+				class="rounded-sm border border-neutral-300 px-1"
 			>
 				<option value="print">Print</option>
 				<option value="web">Web</option>
