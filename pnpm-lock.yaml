@@ -49,8 +49,8 @@ importers:
         specifier: ^15.14.0
         version: 15.14.0
       lucide-svelte:
-        specifier: ^0.468.0
-        version: 0.468.0(svelte@5.14.4)
+        specifier: ^0.469.0
+        version: 0.469.0(svelte@5.14.4)
       prettier:
         specifier: ^3.4.2
         version: 3.4.2
@@ -1294,8 +1294,8 @@ packages:
   loupe@3.1.2:
     resolution: {integrity: sha512-23I4pFZHmAemUnz8WZXbYRSKYj801VDaNv9ETuMh7IrMc7VuVVSo+Z9iLE3ni30+U48iDWfi30d3twAXBYmnCg==}
 
-  lucide-svelte@0.468.0:
-    resolution: {integrity: sha512-n0ecAFtCY5LEeL+PJ1Xj4n3c2gzj8tMpak0KMGnvoSJEjCsCnRB0mekBtJZAo7beyynW9Qj5Um1KfMBAeTNplw==}
+  lucide-svelte@0.469.0:
+    resolution: {integrity: sha512-PMIJ8jrFqVUsXJz4d1yfAQplaGhNOahwwkzbunha8DhpiD73xqX24n8dE1dPpUk3vcrdWVsHc1y/liHHotOnGQ==}
     peerDependencies:
       svelte: ^3 || ^4 || ^5.0.0-next.42
 
@@ -2913,7 +2913,7 @@ snapshots:
 
   loupe@3.1.2: {}
 
-  lucide-svelte@0.468.0(svelte@5.14.4):
+  lucide-svelte@0.469.0(svelte@5.14.4):
     dependencies:
       svelte: 5.14.4
 
