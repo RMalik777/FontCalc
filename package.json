@@ -30,7 +30,7 @@
 		"shiki": "^1.24.4",
 		"svelte": "^5.15.0",
 		"svelte-check": "^4.1.1",
-		"tailwind-merge": "^2.5.5",
+		"tailwind-merge": "^2.6.0",
 		"typescript": "^5.7.2",
 		"typescript-eslint": "^8.18.1",
 		"vite": "^6.0.5",
