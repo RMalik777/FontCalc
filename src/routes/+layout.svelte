@@ -11,11 +11,6 @@
 	/>
 	<link rel="preconnect" href="https://api.fontshare.com" />
 	<link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap" rel="stylesheet" />
-	<script
-		defer
-		data-domain="raflimalik.com"
-		src="https://plausible.io/js/script.file-downloads.hash.outbound-links.js"
-	></script>
 </svelte:head>
 
 <slot />
