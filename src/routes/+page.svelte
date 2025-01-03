@@ -120,4 +120,6 @@
 		<Separator orientation="vertical" />
 		<Result {base_size} {constant} {display} {show_as} {visualize} {rounding} {rounding_to} />
 	</div>
+
+	<Snippet {base_size} />
 </main>
