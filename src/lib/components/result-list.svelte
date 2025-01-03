@@ -4,18 +4,19 @@
 	import { Plus, Minus } from "lucide-svelte";
 
 	import { Button } from "$lib/components/ui/button/index";
-	import { Input } from "$lib/components/ui/input/index";
-	import { Label } from "$lib/components/ui/label/index";
-	import { Checkbox } from "$lib/components/ui/checkbox/index";
-	import * as Select from "$lib/components/ui/select/index";
+
 	import * as Table from "$lib/components/ui/table/index";
 
 	interface Props {
 		base_size: number;
 		constant: string;
 		display: "px" | "rem";
+		show_as: "Web" | "Print";
+		visualize: boolean;
+		rounding: boolean;
+		rounding_to: number;
 	}
-	let { base_size, constant, display }: Props = $props();
+	let { base_size, constant, display, show_as, visualize, rounding, rounding_to }: Props = $props();
 
 	// Predefined values for web
 	const web = [
@@ -40,11 +41,6 @@
 		{ label: "Base", level: 0 },
 		{ label: "-1", level: -1 },
 	]);
-
-	let show_as: "Web" | "Print" = $state("Print");
-	let visualize = $state(false);
-	let rounding = $state(true);
-	let rounding_to = $state(1);
 
 	function pushHead() {
 		if (print.length === 0) {
@@ -80,40 +76,8 @@
 	let show = $derived(show_as === "Print" ? print : web);
 </script>
 
-<section class="flex w-full flex-col items-center">
+<section class="flex grow flex-col items-center">
 	<div class="flex w-full flex-col items-start justify-center gap-2">
-		<form class="w-fit space-y-1">
-			<Label for="showas">Show For</Label>
-			<Select.Root type="single" bind:value={show_as}>
-				<Select.Trigger id="showas">{show_as}</Select.Trigger>
-				<Select.Content>
-					<Select.Item value="Print">Print</Select.Item>
-					<Select.Item value="Web">Web</Select.Item>
-				</Select.Content>
-			</Select.Root>
-
-			<div>
-				<Checkbox id="simulate" name="simulate" bind:checked={visualize} />
-				<Label for="simulate" class="inline-block">Visualize Size</Label>
-			</div>
-			<div>
-				<Checkbox id="rounding" name="rounding" bind:checked={rounding} />
-				<Label for="rounding" class="inline-block">Rounding</Label>
-			</div>
-			<Label for="roundingTo">Fractional Digit</Label>
-			<Input
-				type="number"
-				id="roundingTo"
-				name="roundingTo"
-				min="0"
-				placeholder="The amount of number behind point"
-				bind:value={rounding_to}
-				disabled={!rounding}
-				class="rounded-sm px-1 py-px"
-			/>
-		</form>
-
-		<hr class="h-px w-full" />
 		<h2 class="text-xl font-semibold">Result</h2>
 		<p>The base font size is <span class="font-bold">{base_size} px.</span></p>
 
