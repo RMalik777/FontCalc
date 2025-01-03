@@ -1,14 +1,18 @@
 <script lang="ts">
 	import ResultChild from "./result-child.svelte";
 
-	import Button from "$lib/components/ui/button/button.svelte";
-	import Input from "$lib/components/ui/input.svelte";
-	import Label from "$lib/components/ui/label.svelte";
-	import Checkbox from "$lib/components/ui/checkbox.svelte";
+	import { Plus, Minus } from "lucide-svelte";
+
+	import { Button } from "$lib/components/ui/button/index";
+	import { Input } from "$lib/components/ui/input/index";
+	import { Label } from "$lib/components/ui/label/index";
+	import { Checkbox } from "$lib/components/ui/checkbox/index";
+	import * as Select from "$lib/components/ui/select/index";
+	import * as Table from "$lib/components/ui/table/index";
 
 	interface Props {
 		base_size: number;
-		constant: number;
+		constant: string;
 		display: "px" | "rem";
 	}
 	let { base_size, constant, display }: Props = $props();
@@ -37,10 +41,10 @@
 		{ label: "-1", level: -1 },
 	]);
 
-	let show_as: "web" | "print" = $state("print");
+	let show_as: "Web" | "Print" = $state("Print");
 	let visualize = $state(false);
 	let rounding = $state(true);
-	let rounding_to = $state(2);
+	let rounding_to = $state(1);
 
 	function pushHead() {
 		if (print.length === 0) {
@@ -73,32 +77,27 @@
 		print.pop();
 	}
 
-	let show = $derived(show_as === "print" ? print : web);
+	let show = $derived(show_as === "Print" ? print : web);
 </script>
 
 <section class="flex w-full flex-col items-center">
-	<hr class="h-px w-full" />
-	<h2 class="text-xl font-semibold">Result</h2>
-	<p>The base font size is <span class="font-bold">{base_size} px.</span></p>
 	<div class="flex w-full flex-col items-start justify-center gap-2">
-		<form class="w-full">
+		<form class="w-fit space-y-1">
 			<Label for="showas">Show For</Label>
-			<select
-				id="showas"
-				name="showas"
-				placeholder="Select the displayed result format"
-				bind:value={show_as}
-				class="rounded-sm border border-neutral-300 px-1"
-			>
-				<option value="print">Print</option>
-				<option value="web">Web</option>
-			</select>
+			<Select.Root type="single" bind:value={show_as}>
+				<Select.Trigger id="showas">{show_as}</Select.Trigger>
+				<Select.Content>
+					<Select.Item value="Print">Print</Select.Item>
+					<Select.Item value="Web">Web</Select.Item>
+				</Select.Content>
+			</Select.Root>
+
 			<div>
-				<Checkbox type="checkbox" id="simulate" name="simulate" bind:checked={visualize} />
+				<Checkbox id="simulate" name="simulate" bind:checked={visualize} />
 				<Label for="simulate" class="inline-block">Visualize Size</Label>
 			</div>
 			<div>
-				<Checkbox type="checkbox" id="rounding" name="rounding" bind:checked={rounding} />
+				<Checkbox id="rounding" name="rounding" bind:checked={rounding} />
 				<Label for="rounding" class="inline-block">Rounding</Label>
 			</div>
 			<Label for="roundingTo">Fractional Digit</Label>
@@ -109,37 +108,57 @@
 				min="0"
 				placeholder="The amount of number behind point"
 				bind:value={rounding_to}
+				disabled={!rounding}
 				class="rounded-sm px-1 py-px"
 			/>
 		</form>
 
-		<div class="">
-			<Button disabled={show_as === "web"} onclick={pushHead} size="xs" square>+</Button>
-			<Button disabled={show_as === "web"} onclick={popHead} size="xs" square>-</Button>
-			<Button
-				disabled={show_as === "web"}
-				size="xs"
-				square={false}
-				onclick={() =>
-					(print = [
-						{ label: "6", level: 6 },
-						{ label: "5", level: 5 },
-						{ label: "4", level: 4 },
-						{ label: "3", level: 3 },
-						{ label: "2", level: 2 },
-						{ label: "1", level: 1 },
-						{ label: "Base", level: 0 },
-						{ label: "-1", level: -1 },
-					])}>Reset</Button
-			>
-			<table class="table-auto">
-				<thead class="border bg-neutral-100 font-semibold">
-					<tr class="*:border *:p-2">
-						<th>Level</th>
-						<th>Size</th>
-					</tr>
-				</thead>
-				<tbody>
+		<hr class="h-px w-full" />
+		<h2 class="text-xl font-semibold">Result</h2>
+		<p>The base font size is <span class="font-bold">{base_size} px.</span></p>
+
+		<div class="flex flex-col gap-1">
+			<div class="flex grow flex-row gap-2">
+				<Button
+					variant={"outline"}
+					disabled={show_as === "Web"}
+					onclick={pushHead}
+					size="sm"
+					class="w-full text-xl font-bold"><Plus strokeWidth={3} /></Button
+				>
+				<Button
+					variant={"outline"}
+					disabled={show_as === "Web"}
+					onclick={popHead}
+					size="sm"
+					class="w-full text-xl font-bold"><Minus strokeWidth={3} /></Button
+				>
+				<Button
+					variant={"outline"}
+					disabled={show_as === "Web"}
+					size="sm"
+					class="w-full font-semibold"
+					onclick={() =>
+						(print = [
+							{ label: "6", level: 6 },
+							{ label: "5", level: 5 },
+							{ label: "4", level: 4 },
+							{ label: "3", level: 3 },
+							{ label: "2", level: 2 },
+							{ label: "1", level: 1 },
+							{ label: "Base", level: 0 },
+							{ label: "-1", level: -1 },
+						])}>Reset</Button
+				>
+			</div>
+			<Table.Root class="max-w-screen border">
+				<Table.Header>
+					<Table.Row class="divide-x text-base">
+						<Table.Head class="font-bold">Level</Table.Head>
+						<Table.Head class="font-bold">Size</Table.Head>
+					</Table.Row>
+				</Table.Header>
+				<Table.Body>
 					{#each show as { label, level }}
 						<ResultChild
 							{label}
@@ -152,10 +171,24 @@
 							{display}
 						/>
 					{/each}
-				</tbody>
-			</table>
-			<Button disabled={show_as === "web"} onclick={pushTail} size="xs" square>+</Button>
-			<Button disabled={show_as === "web"} onclick={popTail} size="xs" square>-</Button>
+				</Table.Body>
+			</Table.Root>
+			<div class="flex grow flex-row gap-2">
+				<Button
+					variant={"outline"}
+					disabled={show_as === "Web"}
+					onclick={pushTail}
+					size="sm"
+					class="w-full text-xl font-bold"><Plus strokeWidth={3} /></Button
+				>
+				<Button
+					variant={"outline"}
+					disabled={show_as === "Web"}
+					onclick={popTail}
+					size="sm"
+					class="w-full text-xl font-bold"><Minus strokeWidth={3} /></Button
+				>
+			</div>
 		</div>
 	</div>
 </section>

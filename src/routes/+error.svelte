@@ -2,8 +2,8 @@
 	import { page } from "$app/stores";
 	import { draw, fade } from "svelte/transition";
 	import { expoOut } from "svelte/easing";
-	import { buttonVariant } from "$lib/components/ui/button";
-	import { merge } from "$lib/utils/class-merge";
+
+	import { Button } from "$lib/components/ui/button/index.js";
 
 	let image = $state(false);
 	$effect(() => {
@@ -58,5 +58,5 @@
 		</h1>
 		<p class="text-2xl lg:text-3xl">{$page?.error?.message}</p>
 	</section>
-	<a href="/" class={merge(buttonVariant({ size: "default" }), "text-base")}>Back to Home</a>
+	<Button href="/" size="default" variant="outline">Back to Home</Button>
 </main>
