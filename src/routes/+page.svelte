@@ -88,6 +88,5 @@
 		</Select.Root>
 	</form>
 
-	<Snippet {base_size} />
 	<Result {base_size} {constant} {display} />
 </main>
