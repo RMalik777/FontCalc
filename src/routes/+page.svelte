@@ -40,7 +40,7 @@
 	let display: "px" | "rem" = $state("px");
 </script>
 
-<main
+<section
 	class="mx-4 flex h-fit min-h-dvh flex-col items-start justify-start gap-3 sm:mx-8 md:mx-14 lg:mx-20"
 >
 	<h1 class="self-center text-center text-4xl font-semibold">Font Size Calculator</h1>
@@ -122,4 +122,4 @@
 	</div>
 
 	<Snippet {base_size} />
-</main>
+</section>

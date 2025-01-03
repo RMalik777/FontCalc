@@ -1,6 +1,11 @@
 <script lang="ts">
 	import "@fontsource/geist-mono";
 	import "../app.css";
+
+	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+	import AppSidebar from "$lib/components/sidebar.svelte";
+
+	let { children } = $props();
 </script>
 
 <svelte:head>
@@ -13,4 +18,10 @@
 	<link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap" rel="stylesheet" />
 </svelte:head>
 
-<slot />
+<Sidebar.Provider>
+	<AppSidebar />
+	<main>
+		<Sidebar.Trigger />
+		{@render children?.()}
+	</main>
+</Sidebar.Provider>
