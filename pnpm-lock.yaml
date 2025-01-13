@@ -67,8 +67,8 @@ importers:
         specifier: ^5.17.3
         version: 5.17.3
       svelte-check:
-        specifier: ^4.1.1
-        version: 4.1.1(svelte@5.17.3)(typescript@5.7.3)
+        specifier: ^4.1.3
+        version: 4.1.3(svelte@5.17.3)(typescript@5.7.3)
       tailwind-merge:
         specifier: ^2.6.0
         version: 2.6.0
@@ -1633,8 +1633,8 @@ packages:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
     engines: {node: '>=8'}
 
-  svelte-check@4.1.1:
-    resolution: {integrity: sha512-NfaX+6Qtc8W/CyVGS/F7/XdiSSyXz+WGYA9ZWV3z8tso14V2vzjfXviKaTFEzB7g8TqfgO2FOzP6XT4ApSTUTw==}
+  svelte-check@4.1.3:
+    resolution: {integrity: sha512-IEMoQDH+TrPKwKeIyJim+PU8FxnzQMXsFHR/ldErkHpPXEGHCujHUXiR8jg6qDMqzsif5BbDOUFORltu87ex7g==}
     engines: {node: '>= 18.0.0'}
     hasBin: true
     peerDependencies:
@@ -1673,9 +1673,6 @@ packages:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
-
-  tailwindcss@4.0.0-beta.8:
-    resolution: {integrity: sha512-21HmdRq9tHDLJZavb2cRBGJxBvRODpwb0/t3tRbMOl65hJE6zG6K6lD6lLS3IOC35u4SOjKjdZiJJi9AuWCf+Q==}
 
   tailwindcss@4.0.0-beta.9:
     resolution: {integrity: sha512-96KpsfQi+/sFIOfyFnGzyy5pobuzf1iMBD9NVtelerPM/lPI2XUS4Kikw9yuKRniXXw77ov1sl7gCSKLsn6CJA==}
@@ -3270,7 +3267,7 @@ snapshots:
     dependencies:
       has-flag: 4.0.0
 
-  svelte-check@4.1.1(svelte@5.17.3)(typescript@5.7.3):
+  svelte-check@4.1.3(svelte@5.17.3)(typescript@5.7.3):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 4.0.3
@@ -3326,8 +3323,6 @@ snapshots:
   tailwindcss-animate@1.0.7(tailwindcss@4.0.0-beta.9):
     dependencies:
       tailwindcss: 4.0.0-beta.9
-
-  tailwindcss@4.0.0-beta.8: {}
 
   tailwindcss@4.0.0-beta.9: {}
 
