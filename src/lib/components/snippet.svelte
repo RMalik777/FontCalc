@@ -4,6 +4,7 @@
 	import { Clipboard } from "lucide-svelte";
 
 	import { Button } from "$lib/components/ui/button/index";
+	import { toast } from "svelte-sonner";
 	import * as Tooltip from "$lib/components/ui/tooltip/index";
 
 	interface Props {
@@ -32,7 +33,10 @@
 							class="rounded-xs group h-fit w-fit p-1.5"
 							size="icon"
 							variant="ghost"
-							onclick={() => navigator.clipboard.writeText(code)}
+							onclick={() => {
+								navigator.clipboard.writeText(code);
+								toast.success("Copied to clipboard");
+							}}
 						>
 							<Clipboard />
 						</Button>

@@ -11,7 +11,7 @@
 	});
 </script>
 
-<section
+<main
 	class="flex h-dvh w-dvw flex-col items-center justify-center gap-6 scroll-smooth text-xl font-medium tracking-tight antialiased"
 >
 	<div class="absolute bottom-1 aspect-square h-10 w-auto sm:h-12 md:h-14 lg:h-16 xl:h-20">
@@ -59,4 +59,4 @@
 		<p class="text-2xl lg:text-3xl">{$page?.error?.message}</p>
 	</section>
 	<Button href="/" size="default" variant="outline">Back to Home</Button>
-</section>
+</main>

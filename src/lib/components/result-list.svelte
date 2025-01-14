@@ -4,7 +4,6 @@
 	import { Plus, Minus } from "lucide-svelte";
 
 	import { Button } from "$lib/components/ui/button/index";
-
 	import * as Table from "$lib/components/ui/table/index";
 
 	interface Props {
