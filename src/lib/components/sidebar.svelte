@@ -1,15 +1,14 @@
 <script lang="ts">
-	import { type ComponentProps, untrack } from "svelte";
+	import { type ComponentProps } from "svelte";
 
-	import { ALargeSmall } from "lucide-svelte";
+	import ALargeSmall from "lucide-svelte/icons/a-large-small";
 
-	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+	import { Button } from "$lib/components/ui/button/index.js";
+	import { Checkbox } from "$lib/components/ui/checkbox/index";
 	import { Input } from "$lib/components/ui/input/index";
 	import { Label } from "$lib/components/ui/label/index";
-	import { Checkbox } from "$lib/components/ui/checkbox/index";
 	import * as Select from "$lib/components/ui/select/index.js";
-	import { Separator } from "$lib/components/ui/separator/index.js";
-	import { Button } from "$lib/components/ui/button/index.js";
+	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
 
 	const option = [
 		{
@@ -118,7 +117,7 @@
 			</Sidebar.Group>
 			<Sidebar.Separator />
 			<Sidebar.Group>
-				<Sidebar.GroupLabel>Configuration</Sidebar.GroupLabel>
+				<Sidebar.GroupLabel>Result Configuration</Sidebar.GroupLabel>
 				<Sidebar.GroupContent>
 					<div class="w-full space-y-2">
 						<Label for="display">Display Result As</Label>
@@ -161,7 +160,7 @@
 							disabled={!rounding}
 						/>
 						<Button
-							type="reset"
+							type="button"
 							variant="default"
 							size="sm"
 							class="w-full"
