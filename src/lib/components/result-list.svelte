@@ -1,7 +1,8 @@
 <script lang="ts">
 	import ResultChild from "./result-child.svelte";
 
-	import { Plus, Minus } from "lucide-svelte";
+	import Plus from "lucide-svelte/icons/plus";
+	import Minus from "lucide-svelte/icons/minus";
 
 	import { Button } from "$lib/components/ui/button/index";
 	import * as Table from "$lib/components/ui/table/index";

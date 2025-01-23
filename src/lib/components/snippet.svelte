@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { codeToHtml } from "shiki";
-	import { Clipboard } from "lucide-svelte";
+
+	import Clipboard from "lucide-svelte/icons/clipboard";
 
 	import { Button } from "$lib/components/ui/button/index";
 	import { toast } from "svelte-sonner";
@@ -21,7 +22,7 @@
 	});
 </script>
 
-<div class="snippet">
+<div class="snippet mt-10">
 	<div class="flex flex-row items-center justify-between rounded-t bg-black px-1 py-1 text-white">
 		<h2 class="font-mono text-sm">code.css</h2>
 		<Tooltip.Provider>

@@ -32,11 +32,9 @@
 	/>
 	<main class="h-fit min-h-dvh grow">
 		<Sidebar.Trigger />
-		<h1 class="self-center text-center text-4xl font-semibold">Font Size Calculator</h1>
 		<div class="flex w-full flex-row justify-between gap-4">
 			<Result {base_size} {constant} {display} {show_as} {visualize} {rounding} {rounding_to} />
 		</div>
-
 		<Snippet {base_size} />
 	</main>
 </Sidebar.Provider>
