@@ -7,7 +7,6 @@
 	import { Separator } from "$lib/components/ui/separator/index.js";
 
 	import Result from "$lib/components/result-list.svelte";
-	import Snippet from "$lib/components/snippet.svelte";
 
 	let selected_option = $state("1.618");
 	const option = [
