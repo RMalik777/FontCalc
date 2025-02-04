@@ -29,7 +29,7 @@
 					{#snippet child({ props })}
 						<Button
 							{...props}
-							class="rounded-xs group h-fit w-fit p-1.5"
+							class="group h-fit w-fit rounded-xs p-1.5"
 							size="icon"
 							variant="ghost"
 							onclick={() => navigator.clipboard.writeText(code)}
