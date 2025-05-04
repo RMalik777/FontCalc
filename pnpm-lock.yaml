@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@fontsource/geist-mono':
-        specifier: ^5.2.5
-        version: 5.2.5
+        specifier: ^5.2.6
+        version: 5.2.6
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^6.0.0
@@ -303,8 +303,8 @@ packages:
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
 
-  '@fontsource/geist-mono@5.2.5':
-    resolution: {integrity: sha512-7/r9opukyQ3jkAqfhIRnhodWlAc8yVkHogDUAFqBeBSYNpvlpouLJysYO5cIpqyB/lHrazxChiC73Oj8K3+sZg==}
+  '@fontsource/geist-mono@5.2.6':
+    resolution: {integrity: sha512-I3hsRP+8Gmhk35cwlPAR4w5xqk7e5pro2F1o51ZmB+lN+dPcwN3jYHKN+u0E5AMuiQKpTdkrqfEpvBjzQax3cQ==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1877,7 +1877,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
-  '@fontsource/geist-mono@5.2.5': {}
+  '@fontsource/geist-mono@5.2.6': {}
 
   '@humanfs/core@0.19.1': {}
 
