@@ -34,8 +34,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       cva:
-        specifier: 1.0.0-beta.3
-        version: 1.0.0-beta.3(typescript@5.8.3)
+        specifier: 1.0.0-beta.4
+        version: 1.0.0-beta.4(typescript@5.8.3)
       eslint:
         specifier: ^9.27.0
         version: 9.27.0(jiti@2.4.2)
@@ -829,8 +829,8 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
-  cva@1.0.0-beta.3:
-    resolution: {integrity: sha512-CZa8pTkpEygxJRLH9aod/wfnSgK5z/0GJqG/NNehlwam+S8llqCWUXS3eCenvAiW5sTUpwTWE6bJaeeZ/b4pzA==}
+  cva@1.0.0-beta.4:
+    resolution: {integrity: sha512-F/JS9hScapq4DBVQXcK85l9U91M6ePeXoBMSp7vypzShoefUBxjQTo3g3935PUHgQd+IW77DjbPRIxugy4/GCQ==}
     peerDependencies:
       typescript: '>= 4.5.5'
     peerDependenciesMeta:
@@ -2431,7 +2431,7 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  cva@1.0.0-beta.3(typescript@5.8.3):
+  cva@1.0.0-beta.4(typescript@5.8.3):
     dependencies:
       clsx: 2.1.1
     optionalDependencies:
