@@ -5,7 +5,6 @@
 
 	import AppSidebar from "$lib/components/sidebar.svelte";
 	import Result from "$lib/components/result-list.svelte";
-	import Snippet from "$lib/components/snippet.svelte";
 
 	let base_size = $state(16);
 	let selected_option = $state("1.618");
