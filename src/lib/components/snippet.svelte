@@ -1,25 +1,51 @@
 <script lang="ts">
-	import { onMount } from "svelte";
 	import { codeToHtml } from "shiki";
 
 	import Clipboard from "lucide-svelte/icons/clipboard";
 
 	import { Button } from "$lib/components/ui/button/index";
-	import { toast } from "svelte-sonner";
 	import * as Tooltip from "$lib/components/ui/tooltip/index";
+	import { toast } from "svelte-sonner";
+
+	import { calculate, PXtoREM } from "$lib/function/calculator";
 
 	interface Props {
 		base_size: number;
+		constant: string;
+		rounding: boolean;
+		rounding_to: number;
+		display: "px" | "rem";
 	}
-	let { base_size = 16 }: Props = $props();
-	const code = `:root {\n\tfont-size: ${base_size}px\n}`; // input code
-	let html = $state("");
-	onMount(async () => {
-		html = await codeToHtml(code, {
-			lang: "css",
-			theme: "github-dark",
-		});
-	});
+	let { base_size = 16, constant = "1.618", rounding, rounding_to, display }: Props = $props();
+
+	const level = [-1, 0, 1, 2, 3, 4, 5, 6];
+	const size_list = $derived.by(() =>
+		level.map((l) => {
+			return {
+				level: l === 0 ? "p" : l === -1 ? "small" : "h" + l.toString(),
+				value: calculate(parseFloat(constant), l, base_size),
+			};
+		}),
+	);
+	const computedSnippet = $derived.by(() =>
+		size_list
+			.map((item) => {
+				let new_value: number = item.value;
+				const rounding_value = rounding_to < 0 ? 0 : rounding_to;
+				if (display === "rem") new_value = PXtoREM(item.value, 16); // 16px is the default font size on typical browsers
+				if (rounding) new_value = parseFloat(new_value.toFixed(rounding_value));
+				if (rounding) return `${item.level} {\n\tfont-size: ${new_value}${display};\n}\n`;
+			})
+			.join(""),
+	);
+	const code = `:root {\n\tfont-size: ${base_size}px\n\n}\n${computedSnippet}`; // input code
+	let html = $derived.by(
+		async () =>
+			await codeToHtml(code, {
+				lang: "css",
+				theme: "github-dark",
+			}),
+	);
 </script>
 
 <div class="snippet mt-10">
@@ -31,7 +57,7 @@
 					{#snippet child({ props })}
 						<Button
 							{...props}
-							class="rounded-xs group h-fit w-fit p-1.5"
+							class="group h-fit w-fit rounded-xs p-1.5"
 							size="icon"
 							variant="ghost"
 							onclick={() => {

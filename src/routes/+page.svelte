@@ -21,6 +21,7 @@
 
 <Sidebar.Provider>
 	<AppSidebar
+		variant="sidebar"
 		bind:selected_option
 		bind:custom_option
 		bind:show_as
@@ -30,11 +31,9 @@
 		bind:display
 		bind:base_size
 	/>
-	<main class="h-fit min-h-dvh grow">
-		<Sidebar.Trigger />
-		<div class="flex w-full flex-row justify-between gap-4">
-			<Result {base_size} {constant} {display} {show_as} {visualize} {rounding} {rounding_to} />
-		</div>
-		<Snippet {base_size} />
-	</main>
+	<Sidebar.Inset class="px-4 py-2">
+		<Sidebar.Trigger class="fixed top-2 right-4" />
+		<Result {base_size} {constant} {display} {show_as} {visualize} {rounding} {rounding_to} />
+		<Snippet {base_size} {constant} {display} {rounding} {rounding_to} />
+	</Sidebar.Inset>
 </Sidebar.Provider>
