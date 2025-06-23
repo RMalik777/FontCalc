@@ -26,7 +26,8 @@
 
 <Table.Row class="divide-x">
 	<Table.Cell>{label}</Table.Cell>
-	<Table.Cell style="font-size: {visualize ? `${formatted_value}${display}` : ''};"
-		>{formatted_value} {display}</Table.Cell
+	<Table.Cell
+		style="font-size: {visualize ? `${formatted_value}${display}` : ''};"
+		class="font-mono font-normal tracking-tighter">{formatted_value} {display}</Table.Cell
 	>
 </Table.Row>

@@ -115,15 +115,15 @@
 						])}>Reset</Button
 				>
 			</div>
-			<Table.Root class="max-w-screen border">
+			<Table.Root class="max-w-screen border text-base">
 				<Table.Header>
-					<Table.Row class="divide-x text-base">
+					<Table.Row class="divide-x">
 						<Table.Head class="font-bold">Level</Table.Head>
 						<Table.Head class="font-bold">Size</Table.Head>
 					</Table.Row>
 				</Table.Header>
 				<Table.Body>
-					{#each show as { label, level }}
+					{#each show as { label, level } (level)}
 						<ResultChild
 							{label}
 							{level}

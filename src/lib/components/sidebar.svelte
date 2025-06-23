@@ -9,6 +9,7 @@
 	import { Label } from "$lib/components/ui/label/index";
 	import * as Select from "$lib/components/ui/select/index.js";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+	import * as RadioGroup from "$lib/components/ui/radio-group/index.js";
 
 	const option = [
 		{
@@ -119,25 +120,30 @@
 			<Sidebar.Group>
 				<Sidebar.GroupLabel>Result Configuration</Sidebar.GroupLabel>
 				<Sidebar.GroupContent>
-					<div class="w-full space-y-2">
-						<Label for="display">Display Result As</Label>
-						<Select.Root type="single" bind:value={display} allowDeselect={false}>
-							<Select.Trigger id="display">{display}</Select.Trigger>
-							<Select.Content>
+					<div class="w-full space-y-4">
+						<div class="flex flex-col">
+							<Label for="display">Display Result As</Label>
+							<RadioGroup.Root id="display" bind:value={display}>
 								{#each display_option as { value, label }}
-									<Select.Item {value}>{label}</Select.Item>
+									<div class="flex items-center space-x-2">
+										<RadioGroup.Item {value} id={value} />
+										<Label for={value}>{label}</Label>
+									</div>
 								{/each}
-							</Select.Content>
-						</Select.Root>
+							</RadioGroup.Root>
+						</div>
 
-						<Label for="showas">Show For</Label>
-						<Select.Root type="single" bind:value={show_as}>
-							<Select.Trigger id="showas">{show_as}</Select.Trigger>
-							<Select.Content>
-								<Select.Item value="Print">Print</Select.Item>
-								<Select.Item value="Web">Web</Select.Item>
-							</Select.Content>
-						</Select.Root>
+						<Label for="display">Show For</Label>
+						<RadioGroup.Root id="display" bind:value={show_as}>
+							<div class="flex items-center space-x-2">
+								<RadioGroup.Item value="Print" id="print" />
+								<Label for="print">Print</Label>
+							</div>
+							<div class="flex items-center space-x-2">
+								<RadioGroup.Item value="Web" id="web" />
+								<Label for="web">Web</Label>
+							</div>
+						</RadioGroup.Root>
 
 						<div>
 							<Checkbox id="simulate" name="simulate" bind:checked={visualize} />
