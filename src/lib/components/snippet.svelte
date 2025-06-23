@@ -34,11 +34,11 @@
 				const rounding_value = rounding_to < 0 ? 0 : rounding_to;
 				if (display === "rem") new_value = PXtoREM(item.value, 16); // 16px is the default font size on typical browsers
 				if (rounding) new_value = parseFloat(new_value.toFixed(rounding_value));
-				if (rounding) return `${item.level} {\n\tfont-size: ${new_value}${display};\n}\n`;
+				return `${item.level} {\n\tfont-size: ${new_value}${display};\n}\n`;
 			})
 			.join(""),
 	);
-	const code = `:root {\n\tfont-size: ${base_size}px\n\n}\n${computedSnippet}`; // input code
+	const code = $derived(`:root {\n\tfont-size: ${base_size}px\n\n}\n${computedSnippet}`); // input code
 	let html = $derived.by(
 		async () =>
 			await codeToHtml(code, {
@@ -75,7 +75,9 @@
 			</Tooltip.Root>
 		</Tooltip.Provider>
 	</div>
-	{#await html then html}
+	{#await html}
+		<p class="text-center text-sm text-gray-500">Loading...</p>
+	{:then html}
 		<!-- eslint-disable-next-line svelte/no-at-html-tags-->
 		{@html html}
 	{/await}
