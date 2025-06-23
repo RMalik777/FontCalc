@@ -1,6 +1,11 @@
 <script lang="ts">
-	import "@fontsource/geist-mono";
+	import "@fontsource-variable/jetbrains-mono";
 	import "../app.css";
+
+	import { Toaster } from "$lib/components/ui/sonner/index";
+	import { ModeWatcher } from "mode-watcher";
+
+	let { children } = $props();
 </script>
 
 <svelte:head>
@@ -13,4 +18,6 @@
 	<link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap" rel="stylesheet" />
 </svelte:head>
 
-<slot />
+<Toaster />
+<ModeWatcher />
+{@render children?.()}

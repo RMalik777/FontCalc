@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 	import { draw, fade } from "svelte/transition";
 	import { expoOut } from "svelte/easing";
 
@@ -54,9 +54,9 @@
 
 	<section class="text-center leading-none">
 		<h1 class="text-5xl font-semibold sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
-			{$page?.status}
+			{page?.status}
 		</h1>
-		<p class="text-2xl lg:text-3xl">{$page?.error?.message}</p>
+		<p class="text-2xl lg:text-3xl">{page?.error?.message}</p>
 	</section>
 	<Button href="/" size="default" variant="outline">Back to Home</Button>
 </main>

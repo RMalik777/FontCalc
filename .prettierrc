@@ -3,7 +3,7 @@
 	"tabWidth": 2,
 	"printWidth": 100,
 	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
-	"tailwindFunctions": ["cva", "merge", "clsx"],
+	"tailwindFunctions": ["cva", "cn", "clsx", "tv"],
 	"tailwindStylesheet": "./src/app.css",
 	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
 }
