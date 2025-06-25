@@ -72,7 +72,9 @@
 								onValueChange={() => (custom_option = selected_option)}
 								allowDeselect={false}
 							>
-								<Select.Trigger id="constant" class="w-full">{selected_option}</Select.Trigger>
+								<Select.Trigger id="constant" class="w-full"
+									>{option.find((opt) => opt.value === selected_option)?.label}</Select.Trigger
+								>
 								<Select.Content>
 									{#each option as { value, label } (value)}
 										<Select.Item {value}>{label}</Select.Item>
@@ -88,6 +90,7 @@
 								id="custom"
 								name="constant"
 								placeholder="Enter custom ratio"
+								class="font-mono"
 								disabled={selected_option != "Custom"}
 								bind:value={custom_option}
 							/>
@@ -100,6 +103,7 @@
 								name="base"
 								placeholder="Enter the base font size (default is 16px)"
 								defaultValue="16"
+								class="font-mono"
 								bind:value={base_size}
 							/>
 						</div>
@@ -181,6 +185,7 @@
 								defaultValue="1"
 								placeholder="The amount of number behind point"
 								bind:value={rounding_to}
+								class="font-mono"
 								disabled={!rounding}
 							/>
 						</div>
