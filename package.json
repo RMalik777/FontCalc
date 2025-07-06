@@ -29,7 +29,7 @@
 		"eslint-config-prettier": "^10.1.5",
 		"eslint-plugin-svelte": "^3.9.3",
 		"globals": "^16.2.0",
-		"lucide-svelte": "^0.523.0",
+		"lucide-svelte": "^0.525.0",
 		"mode-watcher": "^1.1.0",
 		"prettier": "^3.6.1",
 		"prettier-plugin-svelte": "^3.4.0",
