@@ -52,8 +52,8 @@ importers:
         specifier: ^9.6.1
         version: 9.6.1
       bits-ui:
-        specifier: ^2.9.3
-        version: 2.9.3(@internationalized/date@3.8.2)(svelte@5.38.1)
+        specifier: ^2.9.4
+        version: 2.9.4(@internationalized/date@3.8.2)(svelte@5.38.1)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -346,8 +346,8 @@ packages:
   '@floating-ui/core@1.7.3':
     resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
 
-  '@floating-ui/dom@1.7.3':
-    resolution: {integrity: sha512-uZA413QEpNuhtb3/iIKoYMSK07keHPYeXF02Zhd6e213j+d1NamLix/mCLxBUDW/Gx52sPH2m+chlUsyaBs/Ag==}
+  '@floating-ui/dom@1.7.4':
+    resolution: {integrity: sha512-OOchDgh4F2CchOX94cRVqhvy7b3AFb+/rQXyswmzmGakRfkMgoWVjfnLWkRirfLEfuD4ysVW16eXzwt3jHIzKA==}
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
@@ -896,8 +896,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  bits-ui@2.9.3:
-    resolution: {integrity: sha512-jSoi3U1pfhLQVKZ3j+1GbeuvT1w6cMbnrVWhObVE+DRuV+zcpKeUnd6zpz7NYF47HsSXVNjI1rJdZH+A5sNsOQ==}
+  bits-ui@2.9.4:
+    resolution: {integrity: sha512-Cqn685P6DDuEyBZT/CWMyS5+8JAnYbctvoEVPcmiut+HUpG3SozVgjoDaUib5VG4ZYUKEi1FPwHxiXo9c6J0PA==}
     engines: {node: '>=20'}
     peerDependencies:
       '@internationalized/date': ^3.8.1
@@ -2253,7 +2253,7 @@ snapshots:
     dependencies:
       '@floating-ui/utils': 0.2.10
 
-  '@floating-ui/dom@1.7.3':
+  '@floating-ui/dom@1.7.4':
     dependencies:
       '@floating-ui/core': 1.7.3
       '@floating-ui/utils': 0.2.10
@@ -2823,10 +2823,10 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  bits-ui@2.9.3(@internationalized/date@3.8.2)(svelte@5.38.1):
+  bits-ui@2.9.4(@internationalized/date@3.8.2)(svelte@5.38.1):
     dependencies:
       '@floating-ui/core': 1.7.3
-      '@floating-ui/dom': 1.7.3
+      '@floating-ui/dom': 1.7.4
       '@internationalized/date': 3.8.2
       esm-env: 1.2.2
       runed: 0.29.2(svelte@5.38.1)
