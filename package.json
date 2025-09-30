@@ -48,7 +48,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource-variable/jetbrains-mono": "^5.2.7",
+		"@fontsource-variable/jetbrains-mono": "^5.2.8",
 		"@fontsource/geist-mono": "^5.2.7",
 		"formsnap": "^2.0.1",
 		"paneforge": "^1.0.2",
