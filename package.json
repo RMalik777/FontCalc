@@ -14,7 +14,7 @@
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.1",
-		"@eslint/js": "^9.38.0",
+		"@eslint/js": "^9.39.0",
 		"@internationalized/date": "^3.10.0",
 		"@lucide/svelte": "^0.552.0",
 		"@sveltejs/adapter-auto": "^7.0.0",
