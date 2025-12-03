@@ -2,10 +2,17 @@
 	import "@fontsource-variable/jetbrains-mono";
 	import "../app.css";
 
+	import { onMount, type Snippet } from "svelte";
 	import { Toaster } from "$lib/components/ui/sonner/index";
 	import { ModeWatcher } from "mode-watcher";
 
-	let { children } = $props();
+	import { configure } from "onedollarstats";
+
+	let { children }: { children: Snippet } = $props();
+
+	onMount(() => {
+		configure({ trackLocalhostAs: "font.raflimalik.com" });
+	});
 </script>
 
 <svelte:head>
