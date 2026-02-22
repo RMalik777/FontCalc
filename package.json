@@ -31,7 +31,7 @@
 		"lucide-svelte": "^0.574.0",
 		"mode-watcher": "^1.1.0",
 		"prettier": "^3.8.1",
-		"prettier-plugin-svelte": "^3.4.1",
+		"prettier-plugin-svelte": "^3.5.0",
 		"prettier-plugin-tailwindcss": "^0.7.2",
 		"shiki": "^3.22.0",
 		"svelte": "^5.51.3",
