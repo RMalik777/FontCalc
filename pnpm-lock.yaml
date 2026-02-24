@@ -18,8 +18,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(svelte@5.51.3)(sveltekit-superforms@2.27.0(@sveltejs/kit@2.52.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.51.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.51.3)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(@types/json-schema@7.0.15)(esbuild@0.27.2)(svelte@5.51.3)(typescript@5.9.3))
       onedollarstats:
-        specifier: ^0.0.12
-        version: 0.0.12
+        specifier: ^0.0.14
+        version: 0.0.14
       paneforge:
         specifier: ^1.0.2
         version: 1.0.2(svelte@5.51.3)
@@ -1434,9 +1434,8 @@ packages:
   obug@2.1.1:
     resolution: {integrity: sha512-uTqF9MuPraAQ+IsnPf366RG4cP9RtUi7MLO1N3KEc+wb0a6yKpeL0lmk2IB1jY5KHPAlTc6T/JRdC/YqxHNwkQ==}
 
-  onedollarstats@0.0.12:
-    resolution: {integrity: sha512-YPGGUxVqAstQmMmWNi4ce/UPeogj2eIa4k/uwZaWIvgSwzp2E/wZ8z7ZFIgISKxvWM0zJOSOGYyL2ZxrcGE/Qw==}
-    deprecated: Please use v0.0.14+ for better UTM params support.
+  onedollarstats@0.0.14:
+    resolution: {integrity: sha512-OEMSMbIGcpOt5v5M54SjhaXkJI/OvdlrwPIjhcHRBhVVsHKS1KyOBe/P7hPxnvqjCeQFur6s/S5bxi8ja4nEiQ==}
 
   oniguruma-parser@0.12.1:
     resolution: {integrity: sha512-8Unqkvk1RYc6yq2WBYRj4hdnsAxVze8i7iPfQr8e4uSP3tRv0rpZcbGUDvxfQQcdwHt/e9PrMvGCsa8OqG9X3w==}
@@ -3275,7 +3274,7 @@ snapshots:
 
   obug@2.1.1: {}
 
-  onedollarstats@0.0.12: {}
+  onedollarstats@0.0.14: {}
 
   oniguruma-parser@0.12.1: {}
 
