@@ -51,7 +51,7 @@
 		"@fontsource-variable/jetbrains-mono": "^5.2.8",
 		"@fontsource/geist-mono": "^5.2.7",
 		"formsnap": "^2.0.1",
-		"onedollarstats": "^0.0.12",
+		"onedollarstats": "^0.0.14",
 		"paneforge": "^1.0.2",
 		"vaul-svelte": "^1.0.0-next.7"
 	},
