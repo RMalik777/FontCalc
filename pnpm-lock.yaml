@@ -28,8 +28,8 @@ importers:
         version: 1.0.0-next.7(svelte@5.55.0)
     devDependencies:
       '@eslint/compat':
-        specifier: ^2.0.3
-        version: 2.0.3(eslint@10.1.0(jiti@2.6.1))
+        specifier: ^2.0.4
+        version: 2.0.4(eslint@10.1.0(jiti@2.6.1))
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.1.0(jiti@2.6.1))
@@ -302,8 +302,8 @@ packages:
     resolution: {integrity: sha512-EriSTlt5OC9/7SXkRSCAhfSxxoSUgBm33OH+IkwbdpgoqsSsUg7y3uh+IICI/Qg4BBWr3U2i39RpmycbxMq4ew==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
-  '@eslint/compat@2.0.3':
-    resolution: {integrity: sha512-SjIJhGigp8hmd1YGIBwh7Ovri7Kisl42GYFjrOyHhtfYGGoLW6teYi/5p8W50KSsawUPpuLOSmsq1bD0NGQLBw==}
+  '@eslint/compat@2.0.4':
+    resolution: {integrity: sha512-o598tCGstJv9Kk4XapwP+oDij9HD9Qr3V37ABzTfdzVvbFciV+sfg9zSW6olj6G/IXj7p89SwSzPnZ+JUEPIPg==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     peerDependencies:
       eslint: ^8.40 || 9 || 10
@@ -321,6 +321,10 @@ packages:
 
   '@eslint/core@1.1.1':
     resolution: {integrity: sha512-QUPblTtE51/7/Zhfv8BDwO0qkkzQL7P/aWWbqcf4xWLEYn1oKjdO0gglQBB4GAsu7u6wjijbCmzsUTy6mnk6oQ==}
+    engines: {node: ^20.19.0 || ^22.13.0 || >=24}
+
+  '@eslint/core@1.2.0':
+    resolution: {integrity: sha512-8FTGbNzTvmSlc4cZBaShkC6YvFMG0riksYWRFKXztqVdXaQbcZLXlFbSpC05s70sGEsXAw0qwhx69JiW7hQS7A==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
   '@eslint/js@10.0.1':
@@ -1859,8 +1863,8 @@ packages:
       typescript:
         optional: true
 
-  validator@13.15.26:
-    resolution: {integrity: sha512-spH26xU080ydGggxRyR1Yhcbgx+j3y5jbNXk/8L+iRvdIEQ4uTRH2Sgf2dokud6Q4oAtsbNvJ1Ft+9xmm6IZcA==}
+  validator@13.15.35:
+    resolution: {integrity: sha512-TQ5pAGhd5whStmqWvYF4OjQROlmv9SMFVt37qoCBdqRffuuklWYQlCNnEs2ZaIBD1kZRNnikiZOS1eqgkar0iw==}
     engines: {node: '>= 0.10'}
 
   vaul-svelte@1.0.0-next.7:
@@ -2095,9 +2099,9 @@ snapshots:
 
   '@eslint-community/regexpp@4.12.2': {}
 
-  '@eslint/compat@2.0.3(eslint@10.1.0(jiti@2.6.1))':
+  '@eslint/compat@2.0.4(eslint@10.1.0(jiti@2.6.1))':
     dependencies:
-      '@eslint/core': 1.1.1
+      '@eslint/core': 1.2.0
     optionalDependencies:
       eslint: 10.1.0(jiti@2.6.1)
 
@@ -2111,9 +2115,13 @@ snapshots:
 
   '@eslint/config-helpers@0.5.3':
     dependencies:
-      '@eslint/core': 1.1.1
+      '@eslint/core': 1.2.0
 
   '@eslint/core@1.1.1':
+    dependencies:
+      '@types/json-schema': 7.0.15
+
+  '@eslint/core@1.2.0':
     dependencies:
       '@types/json-schema': 7.0.15
 
@@ -2125,7 +2133,7 @@ snapshots:
 
   '@eslint/plugin-kit@0.6.1':
     dependencies:
-      '@eslint/core': 1.1.1
+      '@eslint/core': 1.2.0
       levn: 0.4.1
 
   '@exodus/schemasafe@1.3.0':
@@ -2610,7 +2618,7 @@ snapshots:
       dayjs: 1.11.20
       dlv: 1.1.3
       normalize-url: 8.1.1
-      validator: 13.15.26
+      validator: 13.15.35
     optional: true
 
   '@vitest/expect@4.1.2':
@@ -2726,7 +2734,7 @@ snapshots:
     dependencies:
       '@types/validator': 13.15.10
       libphonenumber-js: 1.12.41
-      validator: 13.15.26
+      validator: 13.15.35
     optional: true
 
   clsx@2.1.1: {}
@@ -3641,7 +3649,7 @@ snapshots:
       typescript: 5.9.3
     optional: true
 
-  validator@13.15.26:
+  validator@13.15.35:
     optional: true
 
   vaul-svelte@1.0.0-next.7(svelte@5.55.0):
