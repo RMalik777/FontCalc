@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { codeToHtml } from "shiki";
 
-	import Clipboard from "lucide-svelte/icons/clipboard";
+	import Clipboard from "@lucide/svelte/icons/clipboard";
 
 	import { Button } from "$lib/components/ui/button/index";
 	import * as Tooltip from "$lib/components/ui/tooltip/index";

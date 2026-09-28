@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { type ComponentProps } from "svelte";
 
-	import ALargeSmall from "lucide-svelte/icons/a-large-small";
+	import ALargeSmall from "@lucide/svelte/icons/a-large-small";
 
 	import { Button } from "$lib/components/ui/button/index.js";
 	import { Checkbox } from "$lib/components/ui/checkbox/index";
