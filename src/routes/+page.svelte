@@ -1,39 +1,75 @@
 <script lang="ts">
-	import { untrack } from "svelte";
+	import { resolve } from "$app/paths";
 
-	import * as Sidebar from "$lib/components/ui/sidebar/index";
+	import SlidersHorizontal from "@lucide/svelte/icons/sliders-horizontal";
 
-	import AppSidebar from "$lib/components/sidebar.svelte";
-	import Result from "$lib/components/result-list.svelte";
-	import Snippet from "$lib/components/snippet.svelte";
+	import { Button } from "$lib/components/ui/button";
+	import * as Sheet from "$lib/components/ui/sheet";
 
-	let base_size = $state(16);
-	let selected_option = $state("1.618");
-	// This is intentional, custom_option initial value need to be the same as selected_option initial value
-	let custom_option: string | undefined = $state(untrack(() => selected_option));
-	let show_as: "Web" | "Print" = $state("Print");
-	let display: "px" | "rem" = $state("px");
-	let visualize = $state(false);
-	let rounding = $state(true);
-	let rounding_to = $state(1);
-	const constant = $derived(selected_option === "Custom" ? custom_option : selected_option);
+	import CssOutput from "$lib/components/css-output.svelte";
+	import ScaleControls from "$lib/components/scale-controls.svelte";
+	import ScaleProof from "$lib/components/scale-proof.svelte";
+	import ThemeToggle from "$lib/components/theme-toggle.svelte";
+
+	import { Scale, setScale } from "$lib/scale.svelte";
+
+	setScale(new Scale());
 </script>
 
-<Sidebar.Provider>
-	<AppSidebar
-		variant="sidebar"
-		bind:selected_option
-		bind:custom_option
-		bind:show_as
-		bind:visualize
-		bind:rounding
-		bind:rounding_to
-		bind:display
-		bind:base_size
-	/>
-	<Sidebar.Inset class="px-4 py-2">
-		<Sidebar.Trigger class="fixed top-2 right-4" />
-		<Result {base_size} {constant} {display} {show_as} {visualize} {rounding} {rounding_to} />
-		<Snippet {base_size} {constant} {display} {rounding} {rounding_to} />
-	</Sidebar.Inset>
-</Sidebar.Provider>
+<div class="flex min-h-dvh flex-col">
+	<header
+		class="sticky top-0 z-10 flex h-14 shrink-0 items-center gap-2 border-b border-border bg-background/90 px-4 backdrop-blur sm:px-6"
+	>
+		<a href={resolve("/")} class="mr-auto flex items-center gap-2.5 rounded-md font-semibold">
+			<span class="logo" aria-hidden="true">Aa</span>
+			Font Calculator
+		</a>
+
+		<Sheet.Root>
+			<Sheet.Trigger>
+				{#snippet child({ props })}
+					<Button {...props} variant="outline" class="lg:hidden">
+						<SlidersHorizontal data-icon="inline-start" />
+						Adjust scale
+					</Button>
+				{/snippet}
+			</Sheet.Trigger>
+			<Sheet.Content side="left" class="w-[min(22rem,90vw)] gap-0 overflow-y-auto">
+				<Sheet.Header>
+					<Sheet.Title>Adjust scale</Sheet.Title>
+					<Sheet.Description>Changes apply as you type.</Sheet.Description>
+				</Sheet.Header>
+				<div class="px-4 pb-6">
+					<ScaleControls />
+				</div>
+			</Sheet.Content>
+		</Sheet.Root>
+
+		<ThemeToggle />
+	</header>
+
+	<div class="flex-1 lg:grid lg:grid-cols-[20rem_minmax(0,1fr)]">
+		<aside
+			aria-label="Scale settings"
+			class="hidden border-r border-border bg-card p-6 lg:sticky lg:top-14 lg:block lg:h-[calc(100dvh-3.5rem)] lg:overflow-y-auto"
+		>
+			<ScaleControls />
+		</aside>
+
+		<main class="flex min-w-0 flex-col gap-16 px-4 py-8 sm:px-8 lg:px-12 lg:py-12">
+			<ScaleProof />
+			<CssOutput />
+		</main>
+	</div>
+</div>
+
+<style>
+	/* Wordmark: serif pair set on a magenta baseline. */
+	.logo {
+		font-family: var(--font-serif);
+		font-size: 1.375rem;
+		line-height: 1;
+		padding-bottom: 0.1rem;
+		border-bottom: 2px solid var(--primary);
+	}
+</style>
