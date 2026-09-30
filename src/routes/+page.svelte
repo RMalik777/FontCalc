@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from "svelte";
 	import { resolve } from "$app/paths";
 
 	import SlidersHorizontal from "@lucide/svelte/icons/sliders-horizontal";
@@ -11,9 +12,21 @@
 	import ScaleProof from "$lib/components/scale-proof.svelte";
 	import ThemeToggle from "$lib/components/theme-toggle.svelte";
 
+	import { loadSavedTypeface, saveTypeface } from "$lib/fonts";
 	import { Scale, setScale } from "$lib/scale.svelte";
 
-	setScale(new Scale());
+	const scale = setScale(new Scale());
+
+	// The page is prerendered with the default typeface, so the saved one is restored
+	// after it loads. Saving starts after that, so it does not erase the saved choice.
+	let restored = $state(false);
+	onMount(() => {
+		scale.typeface = loadSavedTypeface();
+		restored = true;
+	});
+	$effect(() => {
+		if (restored) saveTypeface(scale.typeface);
+	});
 </script>
 
 <div class="flex min-h-dvh flex-col">

@@ -2,6 +2,7 @@ import { createContext } from "svelte";
 
 import { calculate, PXtoREM } from "$lib/function/calculator";
 import { defaults, html_steps, ratios, REM_BASE } from "$lib/constant/config";
+import type { GoogleFont } from "$lib/fonts";
 
 export type Unit = "px" | "rem";
 export type Naming = "numbered" | "html";
@@ -36,6 +37,8 @@ export class Scale {
 	sample = $state<string>(defaults.sample);
 	largest = $state<number>(defaults.largest);
 	smallest = $state<number>(defaults.smallest);
+	/** Google Fonts family for the preview. Null shows the default serif. */
+	typeface = $state.raw<GoogleFont | null>(null);
 
 	ratio = $derived(
 		this.ratio_preset === "custom" ? (this.custom_ratio ?? NaN) : parseFloat(this.ratio_preset),
@@ -112,6 +115,7 @@ export class Scale {
 		this.rounding = defaults.rounding;
 		this.digits = defaults.digits;
 		this.sample = defaults.sample;
+		this.typeface = null;
 		this.resetSteps();
 	}
 }

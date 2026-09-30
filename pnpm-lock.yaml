@@ -194,6 +194,9 @@ importers:
       '@fontsource-variable/jetbrains-mono':
         specifier: ^5.3.0
         version: 5.3.0
+      '@tanstack/svelte-query':
+        specifier: ^6.3.0
+        version: 6.3.0(svelte@5.57.1(@typescript-eslint/types@8.70.1))
       formsnap:
         specifier: ^2.0.1
         version: 2.0.1(svelte@5.57.1(@typescript-eslint/types@8.70.1))(sveltekit-superforms@2.30.2(@sveltejs/kit@2.70.3(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.1(@typescript-eslint/types@8.70.1))(vite@8.3.1(esbuild@0.28.1)(jiti@2.7.0)))(svelte@5.57.1(@typescript-eslint/types@8.70.1))(typescript@6.0.3)(vite@8.3.1(esbuild@0.28.1)(jiti@2.7.0)))(@types/json-schema@7.0.15)(svelte@5.57.1(@typescript-eslint/types@8.70.1))(typescript@6.0.3))
@@ -1125,6 +1128,14 @@ packages:
     resolution: {integrity: sha512-yYU8cogLeSh/ms2jh8Fj7jaba/EWa7Ja6GoUqYZaraEuCI5YS6ms6ObZgjjedm+jm6XZjdNRWBpPP6Z86oOxcw==}
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7 || ^8
+
+  '@tanstack/query-core@5.104.0':
+    resolution: {integrity: sha512-JrC2r/JQlXt7khBSdUpsgxNvybzOg+aITa+ARRMlP2AFo93Y8vIqz077rp+e61mJetSZ0T6AJbwW1JHer1vrPQ==}
+
+  '@tanstack/svelte-query@6.3.0':
+    resolution: {integrity: sha512-Lzib+G+fGL6tFi8jJ3jfNKuSE94iEgjpSCz6Pdf33na+Bljfnv+r5aArSDwLecYEnZCBb8mS6uJrcfJj3dR6qg==}
+    peerDependencies:
+      svelte: ^5.25.0
 
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
@@ -3164,6 +3175,13 @@ snapshots:
       '@tailwindcss/oxide': 4.3.3
       tailwindcss: 4.3.3
       vite: 8.3.1(esbuild@0.28.1)(jiti@2.7.0)
+
+  '@tanstack/query-core@5.104.0': {}
+
+  '@tanstack/svelte-query@6.3.0(svelte@5.57.1(@typescript-eslint/types@8.70.1))':
+    dependencies:
+      '@tanstack/query-core': 5.104.0
+      svelte: 5.57.1(@typescript-eslint/types@8.70.1)
 
   '@types/chai@5.2.3':
     dependencies:

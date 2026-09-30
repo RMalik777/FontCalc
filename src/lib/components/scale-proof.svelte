@@ -10,6 +10,7 @@
 	import * as Alert from "$lib/components/ui/alert";
 	import { Button } from "$lib/components/ui/button";
 
+	import { fontStack, stylesheetUrl } from "$lib/fonts";
 	import { getScale } from "$lib/scale.svelte";
 
 	const scale = getScale();
@@ -19,7 +20,15 @@
 	const largest = $derived(scale.steps.at(0));
 	const numbered = $derived(scale.naming === "numbered");
 	const duration = $derived(prefersReducedMotion.current ? 0 : 180);
+
+	const typeface = $derived(scale.typeface);
 </script>
+
+<svelte:head>
+	{#if typeface}
+		<link rel="stylesheet" href={stylesheetUrl(typeface)} />
+	{/if}
+</svelte:head>
 
 {#snippet edge(position: "top" | "bottom")}
 	{@const top = position === "top"}
@@ -108,7 +117,12 @@
 						{#if scale.actual_size}
 							<div class="specimen" style:font-size="{step.px}px">
 								<span class="guides" aria-hidden="true"></span>
-								<span class="sample">
+								<span
+									class="sample"
+									style:font-family={typeface && fontStack(typeface.family, typeface.category)}
+									style:font-weight={typeface?.style.weight}
+									style:font-style={typeface?.style.italic ? "italic" : undefined}
+								>
 									{scale.sample || "Aa"}
 								</span>
 							</div>

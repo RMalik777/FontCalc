@@ -10,6 +10,8 @@
 	import { Switch } from "$lib/components/ui/switch";
 	import * as ToggleGroup from "$lib/components/ui/toggle-group";
 
+	import TypefacePicker from "$lib/components/typeface-picker.svelte";
+
 	import { namings, ratios, REM_BASE, units } from "$lib/constant/config";
 	import { getScale, type Naming, type RatioPreset, type Unit } from "$lib/scale.svelte";
 
@@ -172,6 +174,12 @@
 		</Field.Field>
 
 		{#if scale.actual_size}
+			<Field.Field>
+				<Field.FieldLabel for="{uid}-typeface">Typeface</Field.FieldLabel>
+				<TypefacePicker id="{uid}-typeface" />
+				<Field.FieldDescription>Any family from Google Fonts.</Field.FieldDescription>
+			</Field.Field>
+
 			<Field.Field data-disabled={!scale.actual_size || undefined}>
 				<Field.FieldLabel for="{uid}-sample">Sample text</Field.FieldLabel>
 				<Input id="{uid}-sample" disabled={!scale.actual_size} bind:value={scale.sample} />
