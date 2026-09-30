@@ -19,3 +19,8 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Wrangler
+.wrangler
+.dev.vars*
+!.dev.vars.example
