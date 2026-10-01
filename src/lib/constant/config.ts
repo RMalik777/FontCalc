@@ -49,3 +49,6 @@ export const defaults = {
 	largest: 6,
 	smallest: -1,
 } as const;
+
+// Used for the canonical link and the sitemap.
+export const SITE_URL = "https://font.raflimalik.com";

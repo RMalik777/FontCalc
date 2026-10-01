@@ -12,6 +12,7 @@
 	import ScaleProof from "$lib/components/scale-proof.svelte";
 	import ThemeToggle from "$lib/components/theme-toggle.svelte";
 
+	import { SITE_URL } from "$lib/constant/config";
 	import { loadSavedTypeface, saveTypeface } from "$lib/fonts";
 	import { Scale, setScale } from "$lib/scale.svelte";
 
@@ -28,6 +29,15 @@
 		if (restored) saveTypeface(scale.typeface);
 	});
 </script>
+
+<svelte:head>
+	<title>Type Scale Calculator</title>
+	<meta
+		name="description"
+		content="Calculate font sizes for a modular type scale. Pick a ratio from minor second to golden ratio, set a base size, preview each step in any Google Font, and copy the scale as CSS in px or rem."
+	/>
+	<link rel="canonical" href="{SITE_URL}/" />
+</svelte:head>
 
 <div class="flex min-h-dvh flex-col">
 	<header

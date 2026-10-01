@@ -19,11 +19,6 @@
 </script>
 
 <svelte:head>
-	<title>Font Calculator</title>
-	<meta
-		name="description"
-		content="A simple tool to calculate font sizes based on a modular scale."
-	/>
 	<link rel="preconnect" href="https://api.fontshare.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link

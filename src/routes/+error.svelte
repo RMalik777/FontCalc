@@ -4,6 +4,11 @@
 	import { Button } from "$lib/components/ui/button";
 </script>
 
+<svelte:head>
+	<title>{page.status} · Type Scale Calculator</title>
+	<meta name="robots" content="noindex" />
+</svelte:head>
+
 <main class="flex min-h-dvh flex-col items-center justify-center gap-8 px-4 text-center">
 	<div class="status" aria-hidden="true">
 		<span class="guides"></span>
