@@ -72,6 +72,26 @@
 		<main class="flex min-w-0 flex-col gap-16 px-4 py-8 sm:px-8 lg:px-12 lg:py-12">
 			<ScaleProof />
 			<CssOutput />
+
+			<footer
+				class="mt-auto flex flex-col gap-2 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+			>
+				<p>
+					&copy; 2024 &ndash; {new Date().getFullYear()}
+					<a
+						href="https://raflimalik.com"
+						target="_blank"
+						rel="noopener"
+						class="font-medium text-foreground underline-offset-4 hover:underline">Rafli Malik</a
+					>. Released under the MIT License.
+				</p>
+				<a
+					href="https://github.com/RMalik777/FontCalc"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="font-medium text-foreground underline-offset-4 hover:underline">Source on GitHub</a
+				>
+			</footer>
 		</main>
 	</div>
 </div>
