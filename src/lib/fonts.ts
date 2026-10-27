@@ -21,7 +21,7 @@ export const fontsQuery = queryOptions({
 	queryKey: ["google-fonts", "popularity"],
 	queryFn: async ({ signal }) => {
 		// Created from the Google Fonts API at build time. See src/routes/fonts.json.
-		const response = await fetch(resolve("/fonts.json"), { signal });
+		const response = await fetch(resolve("fonts.json"), { signal });
 		if (!response.ok) throw new Error(`The font list returned ${response.status}.`);
 		return (await response.json()) as GoogleFont[];
 	},
@@ -94,6 +94,7 @@ const STORAGE_KEY = "fontcalc-typeface";
 
 function isGoogleFont(value: unknown): value is GoogleFont {
 	const font = value as GoogleFont | null;
+
 	return (
 		typeof font?.family === "string" &&
 		typeof font.menu === "string" &&

@@ -1,6 +1,6 @@
-import { GOOGLE_FONT_API_KEY } from "$env/static/private";
+import { GOOGLE_FONT_API_KEY } from "$app/env/private";
 
-import type { FontCategory, FontStyle, GoogleFont } from "$lib/fonts";
+import type { FontCategory, FontStyle, GoogleFont } from "#lib/fonts.js";
 
 const API_URL = "https://www.googleapis.com/webfonts/v1/webfonts";
 
@@ -22,6 +22,7 @@ export function defaultStyle(variants: string[]): FontStyle {
 	const upright = styles.filter((style) => !style.italic);
 	const pool = upright.length ? upright : styles;
 	const distance = (style: FontStyle) => Math.abs(style.weight - 400);
+
 	return pool.reduce(
 		(best, style) => (distance(style) < distance(best) ? style : best),
 		pool[0] ?? { weight: 400, italic: false },
@@ -42,15 +43,13 @@ export async function fetchGoogleFonts(fetch: typeof globalThis.fetch): Promise<
 	if (!response.ok) {
 		throw new Error(body?.error?.message ?? `Google Fonts returned ${response.status}.`);
 	}
-	return (
-		(body.items as ApiFont[])
-			// Icon fonts have no letters to preview a type scale with.
-			.filter((font) => !/^Material (Icons|Symbols)/.test(font.family))
-			.map(({ family, category, variants, menu }) => ({
-				family,
-				category,
-				menu,
-				style: defaultStyle(variants),
-			}))
-	);
+
+	return (body.items as ApiFont[]) // Icon fonts have no letters to preview a type scale with.
+		.filter((font) => !/^Material (Icons|Symbols)/.test(font.family))
+		.map(({ family, category, variants, menu }) => ({
+			family,
+			category,
+			menu,
+			style: defaultStyle(variants),
+		}));
 }

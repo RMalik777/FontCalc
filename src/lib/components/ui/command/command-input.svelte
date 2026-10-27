@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Command as CommandPrimitive } from "bits-ui";
-	import * as InputGroup from "$lib/components/ui/input-group/index.js";
+	import * as InputGroup from "#lib/components/ui/input-group/index.js";
 	import SearchIcon from "@lucide/svelte/icons/search";
 	import XIcon from "@lucide/svelte/icons/x";
-	import { cn } from "$lib/utils.js";
+	import { cn } from "#lib/utils.js";
 
 	let {
 		ref = $bindable(null),

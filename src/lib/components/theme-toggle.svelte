@@ -1,23 +1,43 @@
 <script lang="ts">
-	import { mode, toggleMode } from "mode-watcher";
+	import { resetMode, setMode, userPrefersMode } from "mode-watcher";
 
-	import Moon from "@lucide/svelte/icons/moon";
-	import Sun from "@lucide/svelte/icons/sun";
+	import ContrastIcon from "@lucide/svelte/icons/contrast";
+	import MoonIcon from "@lucide/svelte/icons/moon";
+	import SunIcon from "@lucide/svelte/icons/sun";
 
-	import { Button } from "$lib/components/ui/button";
+	import { buttonVariants } from "#lib/components/ui/button/index.js";
+	import * as DropdownMenu from "#lib/components/ui/dropdown-menu/index.js";
+	import { cn } from "#lib/utils.js";
 
-	const dark = $derived(mode.current === "dark");
+	const selectedMode = $derived(userPrefersMode.current);
+	const iconClass = cn("absolute h-4 w-4 transition-all! duration-200 ease-out");
 </script>
 
-<Button
-	variant="ghost"
-	size="icon"
-	onclick={toggleMode}
-	aria-label={dark ? "Use light theme" : "Use dark theme"}
->
-	{#if dark}
-		<Sun />
-	{:else}
-		<Moon />
-	{/if}
-</Button>
+<DropdownMenu.Root>
+	<DropdownMenu.Trigger class={buttonVariants({ variant: "ghost", size: "icon" })}>
+		<SunIcon
+			class={cn(selectedMode === "light" ? "scale-100 rotate-0" : "scale-0 rotate-90", iconClass)}
+		/>
+		<MoonIcon
+			class={cn(selectedMode === "dark" ? "scale-100 rotate-0" : "scale-0 rotate-90", iconClass)}
+		/>
+		<ContrastIcon
+			class={cn(selectedMode === "system" ? "scale-100 rotate-0" : "scale-0 rotate-90", iconClass)}
+		/>
+		<span class="sr-only">Select theme</span>
+	</DropdownMenu.Trigger>
+	<DropdownMenu.Content align="end">
+		<DropdownMenu.Item onclick={() => setMode("light")}>
+			<SunIcon />
+			Light
+		</DropdownMenu.Item>
+		<DropdownMenu.Item onclick={() => setMode("dark")}>
+			<MoonIcon />
+			Dark
+		</DropdownMenu.Item>
+		<DropdownMenu.Item onclick={() => resetMode()}>
+			<ContrastIcon />
+			System
+		</DropdownMenu.Item>
+	</DropdownMenu.Content>
+</DropdownMenu.Root>

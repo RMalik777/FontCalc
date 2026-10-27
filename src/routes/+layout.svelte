@@ -4,12 +4,12 @@
 
 	import { onMount, type Snippet } from "svelte";
 	import { QueryClientProvider } from "@tanstack/svelte-query";
-	import { Toaster } from "$lib/components/ui/sonner/index";
+	import { Toaster } from "#lib/components/ui/sonner/index.js";
 	import { ModeWatcher } from "mode-watcher";
 
 	import { configure } from "onedollarstats";
 
-	import { queryClient } from "$lib/query";
+	import { queryClient } from "#lib/query.js";
 
 	let { children }: { children: Snippet } = $props();
 

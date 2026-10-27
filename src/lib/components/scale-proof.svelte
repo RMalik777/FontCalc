@@ -7,11 +7,11 @@
 	import RotateCcw from "@lucide/svelte/icons/rotate-ccw";
 	import TriangleAlert from "@lucide/svelte/icons/triangle-alert";
 
-	import * as Alert from "$lib/components/ui/alert";
-	import { Button } from "$lib/components/ui/button";
+	import * as Alert from "#lib/components/ui/alert/index.js";
+	import { Button } from "#lib/components/ui/button/index.js";
 
-	import { fontStack, stylesheetUrl } from "$lib/fonts";
-	import { getScale } from "$lib/scale.svelte";
+	import { fontStack, stylesheetUrl } from "#lib/fonts.js";
+	import { getScale } from "#lib/scale.svelte.js";
 
 	const scale = getScale();
 

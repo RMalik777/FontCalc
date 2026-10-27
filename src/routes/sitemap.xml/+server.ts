@@ -1,4 +1,4 @@
-import { SITE_URL } from "$lib/constant/config";
+import { SITE_URL } from "#lib/constant/config.js";
 
 export const prerender = true;
 

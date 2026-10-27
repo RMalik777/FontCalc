@@ -1,19 +1,19 @@
 <script lang="ts">
 	import RotateCcw from "@lucide/svelte/icons/rotate-ccw";
 
-	import { Button } from "$lib/components/ui/button";
-	import * as Field from "$lib/components/ui/field";
-	import { Input } from "$lib/components/ui/input";
-	import * as InputGroup from "$lib/components/ui/input-group";
-	import * as Select from "$lib/components/ui/select";
-	import { Separator } from "$lib/components/ui/separator";
-	import { Switch } from "$lib/components/ui/switch";
-	import * as ToggleGroup from "$lib/components/ui/toggle-group";
+	import { Button } from "#lib/components/ui/button/index.js";
+	import * as Field from "#lib/components/ui/field/index.js";
+	import { Input } from "#lib/components/ui/input/index.js";
+	import * as InputGroup from "#lib/components/ui/input-group/index.js";
+	import * as Select from "#lib/components/ui/select/index.js";
+	import { Separator } from "#lib/components/ui/separator/index.js";
+	import { Switch } from "#lib/components/ui/switch/index.js";
+	import * as ToggleGroup from "#lib/components/ui/toggle-group/index.js";
 
-	import TypefacePicker from "$lib/components/typeface-picker.svelte";
+	import TypefacePicker from "#lib/components/typeface-picker.svelte";
 
-	import { namings, ratios, REM_BASE, units } from "$lib/constant/config";
-	import { getScale, type Naming, type RatioPreset, type Unit } from "$lib/scale.svelte";
+	import { namings, ratios, REM_BASE, units } from "#lib/constant/config.js";
+	import { getScale, type Naming, type RatioPreset, type Unit } from "#lib/scale.svelte.js";
 
 	// Controls render twice (desktop panel and mobile sheet), so ids must be unique.
 	const uid = $props.id();

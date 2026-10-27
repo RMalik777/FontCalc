@@ -5,9 +5,9 @@
 	import Check from "@lucide/svelte/icons/check";
 	import Copy from "@lucide/svelte/icons/copy";
 
-	import { Button } from "$lib/components/ui/button";
+	import { Button } from "#lib/components/ui/button/index.js";
 
-	import { getScale } from "$lib/scale.svelte";
+	import { getScale } from "#lib/scale.svelte.js";
 
 	const scale = getScale();
 

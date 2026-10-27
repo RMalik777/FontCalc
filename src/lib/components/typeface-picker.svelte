@@ -3,11 +3,11 @@
 
 	import ChevronsUpDown from "@lucide/svelte/icons/chevrons-up-down";
 
-	import { Button } from "$lib/components/ui/button";
-	import * as Command from "$lib/components/ui/command";
-	import * as Popover from "$lib/components/ui/popover";
-	import { Skeleton } from "$lib/components/ui/skeleton";
-	import * as ToggleGroup from "$lib/components/ui/toggle-group";
+	import { Button } from "#lib/components/ui/button/index.js";
+	import * as Command from "#lib/components/ui/command/index.js";
+	import * as Popover from "#lib/components/ui/popover/index.js";
+	import { Skeleton } from "#lib/components/ui/skeleton/index.js";
+	import * as ToggleGroup from "#lib/components/ui/toggle-group/index.js";
 
 	import {
 		categories,
@@ -18,8 +18,8 @@
 		registerMenuFont,
 		type FontCategory,
 		type GoogleFont,
-	} from "$lib/fonts";
-	import { getScale } from "$lib/scale.svelte";
+	} from "#lib/fonts.js";
+	import { getScale } from "#lib/scale.svelte.js";
 
 	let { id, disabled = false }: { id: string; disabled?: boolean } = $props();
 

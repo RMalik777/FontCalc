@@ -4,17 +4,17 @@
 
 	import SlidersHorizontal from "@lucide/svelte/icons/sliders-horizontal";
 
-	import { Button } from "$lib/components/ui/button";
-	import * as Sheet from "$lib/components/ui/sheet";
+	import { Button } from "#lib/components/ui/button/index.js";
+	import * as Sheet from "#lib/components/ui/sheet/index.js";
 
-	import CssOutput from "$lib/components/css-output.svelte";
-	import ScaleControls from "$lib/components/scale-controls.svelte";
-	import ScaleProof from "$lib/components/scale-proof.svelte";
-	import ThemeToggle from "$lib/components/theme-toggle.svelte";
+	import CssOutput from "#lib/components/css-output.svelte";
+	import ScaleControls from "#lib/components/scale-controls.svelte";
+	import ScaleProof from "#lib/components/scale-proof.svelte";
+	import ThemeToggle from "#lib/components/theme-toggle.svelte";
 
-	import { SITE_URL } from "$lib/constant/config";
-	import { loadSavedTypeface, saveTypeface } from "$lib/fonts";
-	import { Scale, setScale } from "$lib/scale.svelte";
+	import { SITE_URL } from "#lib/constant/config.js";
+	import { loadSavedTypeface, saveTypeface } from "#lib/fonts.js";
+	import { Scale, setScale } from "#lib/scale.svelte.js";
 
 	const scale = setScale(new Scale());
 
@@ -39,7 +39,7 @@
 	<link rel="canonical" href="{SITE_URL}/" />
 </svelte:head>
 
-<div class="flex min-h-dvh flex-col">
+<div class="flex min-h-svh flex-col">
 	<header
 		class="sticky top-0 z-10 flex h-14 shrink-0 items-center gap-2 border-b border-border bg-background/90 px-4 backdrop-blur sm:px-6"
 	>

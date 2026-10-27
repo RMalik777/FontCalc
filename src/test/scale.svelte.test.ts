@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { Scale } from "$lib/scale.svelte";
+import { Scale } from "#lib/scale.svelte.js";
 
 describe("Scale", () => {
 	it("lists numbered steps from largest to smallest", () => {

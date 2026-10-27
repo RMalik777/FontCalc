@@ -1,8 +1,8 @@
 import { createContext } from "svelte";
 
-import { calculate, PXtoREM } from "$lib/function/calculator";
-import { defaults, html_steps, ratios, REM_BASE } from "$lib/constant/config";
-import type { GoogleFont } from "$lib/fonts";
+import { calculate, PXtoREM } from "#lib/function/calculator.js";
+import { defaults, html_steps, ratios, REM_BASE } from "#lib/constant/config.js";
+import type { GoogleFont } from "#lib/fonts.js";
 
 export type Unit = "px" | "rem";
 export type Naming = "numbered" | "html";

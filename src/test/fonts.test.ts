@@ -8,10 +8,10 @@ import {
 	stylesheetUrl,
 	type FontStyle,
 	type GoogleFont,
-} from "$lib/fonts";
+} from "#lib/fonts.js";
 
 vi.mock("$env/static/private", () => ({ GOOGLE_FONT_API_KEY: "test" }));
-const { defaultStyle } = await import("$lib/server/google-fonts");
+const { defaultStyle } = await import("#lib/server/google-fonts.js");
 
 function font(family: string, style: FontStyle): GoogleFont {
 	return { family, category: "serif", menu: "", style };

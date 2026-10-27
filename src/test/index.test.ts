@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { calculate, PXtoREM, REMtoPX } from "$lib/function/calculator";
+import { calculate, PXtoREM, REMtoPX } from "#lib/function/calculator.js";
 
 describe("calculator", () => {
 	it("calculate", () => {
