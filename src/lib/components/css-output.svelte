@@ -1,37 +1,12 @@
 <script lang="ts">
-	import { codeToHtml, type ThemeRegistration } from "shiki";
+	import { siCss } from "simple-icons";
 	import { toast } from "svelte-sonner";
 
-	import Check from "@lucide/svelte/icons/check";
-	import Copy from "@lucide/svelte/icons/copy";
-
-	import { Button } from "#lib/components/ui/button/index.js";
-
+	import * as CodeBlock from "#lib/components/ui/code-block/index.js";
+	import { useHighlightedCode } from "#lib/hooks/use-highlighted-code.svelte.js";
 	import { getScale } from "#lib/scale.svelte.js";
 
 	const scale = getScale();
-
-	// Token colors point at CSS variables so the code follows the light and dark themes.
-	const theme: ThemeRegistration = {
-		name: "proof",
-		type: "light",
-		colors: { "editor.foreground": "var(--code-text)", "editor.background": "transparent" },
-		tokenColors: [
-			{
-				scope: ["entity.name.tag", "entity.other.attribute-name", "meta.selector"],
-				settings: { foreground: "var(--code-selector)" },
-			},
-			{
-				scope: ["support.type.property-name", "variable", "support.type.custom-property"],
-				settings: { foreground: "var(--code-text)" },
-			},
-			{
-				scope: ["constant.numeric", "keyword.other.unit"],
-				settings: { foreground: "var(--code-number)" },
-			},
-			{ scope: ["punctuation", "comment"], settings: { foreground: "var(--code-muted)" } },
-		],
-	};
 
 	const code = $derived.by(() => {
 		if (scale.naming === "html") {
@@ -44,76 +19,43 @@
 		return `:root {\n${props.join("\n")}\n}`;
 	});
 
-	let html = $state("");
-	let copied = $state(false);
-	let copied_timer: ReturnType<typeof setTimeout> | undefined;
-
-	$effect(() => {
-		const source = code;
-		let stale = false;
-		codeToHtml(source, { lang: "css", theme }).then((result) => {
-			if (!stale) html = result;
-		});
-		return () => {
-			stale = true;
-		};
-	});
-
-	async function copy() {
-		try {
-			await navigator.clipboard.writeText(code);
-			copied = true;
-			clearTimeout(copied_timer);
-			copied_timer = setTimeout(() => (copied = false), 1600);
-			toast.success("CSS copied to clipboard!");
-		} catch {
-			toast.error("Couldn't copy the CSS. Select the code and copy it manually.");
-		}
-	}
+	const lines = useHighlightedCode(
+		() => code,
+		() => "css",
+	);
 </script>
 
 {#if scale.valid}
 	<section aria-labelledby="css-heading" class="flex max-w-3xl flex-col gap-4">
-		<div class="flex flex-wrap items-end justify-between gap-3">
-			<div class="flex flex-col gap-1">
-				<h2 id="css-heading" class="text-xl font-semibold tracking-tight">CSS</h2>
-				<p class="text-sm text-muted-foreground">
-					{scale.naming === "html"
-						? "A font-size rule for each element."
-						: "A custom property for each step."}
-				</p>
-			</div>
-			<Button variant="outline" onclick={copy} aria-live="polite">
-				{#if copied}
-					<Check data-icon="inline-start" />
-					Copied
-				{:else}
-					<Copy data-icon="inline-start" />
-					Copy CSS
-				{/if}
-			</Button>
+		<div class="flex flex-col gap-1">
+			<h2 id="css-heading" class="text-xl font-semibold tracking-tight">CSS</h2>
+			<p class="text-sm text-muted-foreground">
+				{scale.naming === "html"
+					? "A font-size rule for each element."
+					: "A custom property for each step."}
+			</p>
 		</div>
 
-		<div class="code rounded-lg border border-border bg-card">
-			{#if html}
-				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-				{@html html}
-			{:else}
-				<pre><code>{code}</code></pre>
-			{/if}
-		</div>
+		<CodeBlock.Root>
+			<CodeBlock.Header>
+				<CodeBlock.Title>
+					<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d={siCss.path} />
+					</svg>
+					type-scale.css
+				</CodeBlock.Title>
+				<CodeBlock.Actions>
+					<CodeBlock.CopyButton
+						value={code}
+						onclick={() => toast.success("CSS copied to clipboard!")}
+					/>
+				</CodeBlock.Actions>
+			</CodeBlock.Header>
+			<CodeBlock.Content lineNumbers class="tab-2">
+				{#each lines.current as line, index (index)}
+					<CodeBlock.Line code={line} />
+				{/each}
+			</CodeBlock.Content>
+		</CodeBlock.Root>
 	</section>
 {/if}
-
-<style>
-	.code :global(pre) {
-		overflow-x: auto;
-		padding: 1rem 1.25rem;
-		font-family: var(--font-mono);
-		font-size: 0.8125rem;
-		line-height: 1.7;
-		tab-size: 2;
-		color: var(--code-text);
-		background: transparent !important;
-	}
-</style>

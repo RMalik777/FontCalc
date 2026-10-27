@@ -87,10 +87,6 @@
 	--sidebar-ring: oklch(0.68 0.108 234.093);
 	--guide: oklch(0.793 0.073 233.128);
 	--guide-muted: oklch(0.912 0.03 232.437);
-	--code-text: oklch(0.217 0.017 264.131);
-	--code-muted: oklch(0.611 0.027 259.808);
-	--code-selector: oklch(0.491 0.27 292.581);
-	--code-number: oklch(0.518 0.108 240.834);
 }
 
 .dark {
@@ -127,10 +123,6 @@
 	--sidebar-ring: oklch(0.68 0.108 234.093);
 	--guide: oklch(0.572 0.091 239.214);
 	--guide-muted: oklch(0.369 0.06 248.203);
-	--code-text: oklch(0.943 0.013 251.561);
-	--code-muted: oklch(0.638 0.038 256.384);
-	--code-selector: oklch(0.702 0.183 293.541);
-	--code-number: oklch(0.785 0.09 233.634);
 }
 
 @theme inline {
