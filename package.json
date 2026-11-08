@@ -34,7 +34,7 @@
 		"prettier": "^3.9.10",
 		"prettier-plugin-svelte": "^4.1.1",
 		"prettier-plugin-tailwindcss": "^0.8.1",
-		"shadcn-svelte": "^1.7.1",
+		"shadcn-svelte": "^1.8.0",
 		"shiki": "^4.5.0",
 		"simple-icons": "^16.36.0",
 		"svelte": "^5.57.2",
